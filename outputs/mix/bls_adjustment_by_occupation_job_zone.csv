@@ -1,0 +1,182 @@
+code,title,emp_2025_k,change_pct,bls_adjustment_pct,direction,job_zone,n_onet_codes,cites_automation
+11-1011,Chief executives,0.2,-12.9,0.0,none,5.0,2.0,False
+11-1021,General and operations managers,4.5,-12.9,0.0,none,4.0,1.0,False
+11-2021,Marketing managers,0.4,-12.9,0.0,none,4.0,1.0,False
+11-2022,Sales managers,1.5,-12.9,0.0,none,4.0,1.0,False
+11-3012,Administrative services managers,0.2,-12.9,0.0,none,3.0,1.0,False
+11-3013,Facilities managers,0.7,-12.9,0.0,none,4.0,2.0,False
+11-3021,Computer and information systems managers,0.9,-6.8,7.003444316877139,up,4.0,1.0,False
+11-3031,Financial managers,1.7,-9.4,4.018369690011481,up,5.0,3.0,False
+11-3051,Industrial production managers,7.8,-12.9,0.0,none,4.0,6.0,False
+11-3061,Purchasing managers,0.9,-12.9,0.0,none,4.0,1.0,False
+11-3071,"Transportation, storage, and distribution managers",1.0,-12.9,0.0,none,4.0,2.0,False
+11-3121,Human resources managers,1.0,-12.9,0.0,none,4.0,1.0,False
+11-9041,Architectural and engineering managers,4.0,-12.9,0.0,none,5.0,2.0,False
+11-9199,"Managers, all other",0.8,-12.9,0.0,none,4.0,6.0,False
+13-1020,Buyers and purchasing agents,3.6,-8.6,4.936854190585538,up,4.0,3.0,False
+13-1041,Compliance officers,0.2,-12.9,0.0,none,4.0,7.0,False
+13-1051,Cost estimators,0.2,-19.9,-8.036739380022961,down,4.0,1.0,False
+13-1071,Human resources specialists,3.2,-12.9,0.0,none,4.0,1.0,False
+13-1075,Labor relations specialists,0.1,-12.9,0.0,none,4.0,1.0,False
+13-1081,Logisticians,2.5,-2.5,11.940298507462677,up,4.0,3.0,False
+13-1082,Project management specialists,1.7,-12.9,0.0,none,4.0,1.0,False
+13-1111,Management analysts,0.5,-12.9,0.0,none,4.0,1.0,False
+13-1141,"Compensation, benefits, and job analysis specialists",0.1,-12.9,0.0,none,4.0,1.0,False
+13-1151,Training and development specialists,1.7,-8.6,4.936854190585538,up,4.0,1.0,False
+13-1161,Market research analysts and marketing specialists,0.8,-12.9,0.0,none,4.0,2.0,False
+13-1199,"Business operations specialists, all other",2.1,-12.9,0.0,none,4.0,4.0,False
+13-2011,Accountants and auditors,2.8,-12.9,0.0,none,4.0,1.0,False
+13-2031,Budget analysts,0.1,-12.9,0.0,none,4.0,1.0,False
+13-2051,Financial and investment analysts,0.7,-12.9,0.0,none,4.0,1.0,False
+15-1211,Computer systems analysts,0.8,-12.9,0.0,none,5.0,2.0,False
+15-1212,Information security analysts,0.1,-3.4,10.907003444316876,up,4.0,1.0,True
+15-1231,Computer network support specialists,0.3,-19.0,-7.00344431687715,down,4.0,1.0,False
+15-1232,Computer user support specialists,1.3,-21.6,-9.988518943742818,down,3.0,1.0,False
+15-1241,Computer network architects,0.1,-12.9,0.0,none,4.0,2.0,False
+15-1242,Database administrators,0.1,-19.0,-7.00344431687715,down,4.0,1.0,True
+15-1244,Network and computer systems administrators,0.8,-21.6,-9.988518943742818,down,3.0,1.0,True
+15-1251,Computer programmers,0.1,-26.0,-15.040183696900112,down,4.0,1.0,True
+15-1252,Software developers,2.3,-12.9,0.0,none,4.0,1.0,False
+15-1253,Software quality assurance analysts and testers,0.2,-16.4,-4.01836969001147,down,4.0,1.0,True
+15-1254,Web developers,0.1,-15.5,-2.985074626865669,down,3.0,1.0,True
+15-1255,Web and digital interface designers,0.1,-14.7,-2.066590126291623,down,4.0,2.0,False
+15-1299,"Computer occupations, all other",0.5,-12.9,0.0,none,4.0,9.0,False
+15-2031,Operations research analysts,0.1,-8.6,4.936854190585538,up,5.0,1.0,False
+15-2051,Data scientists,0.2,8.8,24.9138920780712,up,4.0,3.0,False
+17-2011,Aerospace engineers,0.1,-12.9,0.0,none,4.0,1.0,False
+17-2061,Computer hardware engineers,0.1,-12.9,0.0,none,4.0,1.0,False
+17-2071,Electrical engineers,1.6,-10.3,2.9850746268656803,up,4.0,1.0,False
+17-2072,"Electronics engineers, except computer",0.4,-12.9,0.0,none,4.0,2.0,False
+17-2081,Environmental engineers,0.1,-12.9,0.0,none,4.0,1.0,False
+17-2111,"Health and safety engineers, except mining safety engineers and inspectors",0.1,-12.9,0.0,none,4.0,2.0,False
+17-2112,Industrial engineers,16.8,-5.1,8.955223880597018,up,5.0,4.0,False
+17-2131,Materials engineers,0.5,-12.9,0.0,none,4.0,1.0,False
+17-2141,Mechanical engineers,8.5,-6.0,7.921928817451196,up,4.0,3.0,True
+17-2199,"Engineers, all other",0.9,-12.9,0.0,none,5.0,8.0,False
+17-3013,Mechanical drafters,0.4,-21.6,-9.988518943742818,down,3.0,1.0,False
+17-3023,Electrical and electronic engineering technologists and technicians,0.8,-12.9,0.0,none,3.0,1.0,False
+17-3024,Electro-mechanical and mechatronics technologists and technicians,0.3,-15.5,-2.985074626865669,down,3.0,2.0,True
+17-3026,Industrial engineering technologists and technicians,6.0,-12.9,0.0,none,4.0,2.0,False
+17-3027,Mechanical engineering technologists and technicians,1.8,-17.3,-5.051664753157292,down,3.0,2.0,False
+17-3028,Calibration technologists and technicians,0.1,-12.9,0.0,none,3.0,1.0,False
+17-3029,"Engineering technologists and technicians, except drafters, all other",0.4,-12.9,0.0,none,3.0,2.0,False
+19-4031,Chemical technicians,0.1,-12.9,0.0,none,3.0,1.0,False
+19-4099,"Life, physical, and social science technicians, all other",0.1,-12.9,0.0,none,4.0,2.0,False
+19-5011,Occupational health and safety specialists,0.9,1.0,15.958668197474179,up,4.0,1.0,False
+19-5012,Occupational health and safety technicians,0.2,-1.6,12.9735935706085,up,3.0,1.0,False
+23-1011,Lawyers,0.1,-12.9,0.0,none,5.0,1.0,False
+27-1021,Commercial and industrial designers,0.3,-12.9,0.0,none,4.0,1.0,False
+27-1024,Graphic designers,0.2,-16.4,-4.01836969001147,down,4.0,1.0,False
+27-3031,Public relations specialists,0.1,-15.5,-2.985074626865669,down,4.0,1.0,False
+27-3042,Technical writers,0.1,-19.0,-7.00344431687715,down,4.0,1.0,False
+27-3091,Interpreters and translators,0.1,-12.9,0.0,none,4.0,1.0,False
+29-1141,Registered nurses,0.1,-12.9,0.0,none,5.0,5.0,False
+33-9032,Security guards,0.2,-19.9,-8.036739380022961,down,2.0,1.0,True
+37-2011,"Janitors and cleaners, except maids and housekeeping cleaners",1.2,-12.9,0.0,none,3.0,1.0,False
+41-1012,First-line supervisors of non-retail sales workers,0.2,-12.9,0.0,none,4.0,1.0,False
+41-2022,Parts salespersons,0.4,-12.9,0.0,none,2.0,1.0,False
+41-3091,"Sales representatives of services, except advertising, insurance, financial services, and travel",0.1,-15.5,-2.985074626865669,down,2.0,1.0,False
+41-4011,"Sales representatives, wholesale and manufacturing, technical and scientific products",0.2,-17.3,-5.051664753157292,down,4.0,2.0,False
+41-4012,"Sales representatives, wholesale and manufacturing, except technical and scientific products",3.4,-15.5,-2.985074626865669,down,4.0,1.0,False
+41-9031,Sales engineers,0.3,-16.4,-4.01836969001147,down,4.0,1.0,False
+41-9099,"Sales and related workers, all other",0.1,-12.9,0.0,none,,,False
+43-1011,First-line supervisors of office and administrative support workers,2.3,-17.3,-5.051664753157292,down,3.0,1.0,False
+43-3011,Bill and account collectors,0.1,-21.6,-9.988518943742818,down,2.0,1.0,True
+43-3021,Billing and posting clerks,0.1,-21.6,-9.988518943742818,down,2.0,1.0,True
+43-3031,"Bookkeeping, accounting, and auditing clerks",2.0,-21.6,-9.988518943742818,down,3.0,1.0,True
+43-3051,Payroll and timekeeping clerks,0.3,-30.3,-19.977037887485636,down,3.0,1.0,True
+43-3061,Procurement clerks,0.3,-21.6,-9.988518943742818,down,2.0,1.0,True
+43-4051,Customer service representatives,3.0,-21.6,-9.988518943742818,down,2.0,1.0,False
+43-4071,File clerks,0.1,-30.3,-19.977037887485636,down,2.0,1.0,False
+43-4151,Order clerks,0.3,-30.3,-19.977037887485636,down,2.0,1.0,True
+43-4161,"Human resources assistants, except payroll and timekeeping",0.3,-21.6,-9.988518943742818,down,3.0,1.0,False
+43-4171,Receptionists and information clerks,0.2,-19.9,-8.036739380022961,down,2.0,1.0,True
+43-5032,"Dispatchers, except police, fire, and ambulance",0.1,-17.3,-5.051664753157292,down,2.0,1.0,True
+43-5061,"Production, planning, and expediting clerks",6.8,-17.3,-5.051664753157292,down,2.0,1.0,False
+43-5071,"Shipping, receiving, and inventory clerks",9.6,-21.6,-9.988518943742818,down,2.0,1.0,False
+43-5111,"Weighers, measurers, checkers, and samplers, recordkeeping",0.2,-21.6,-9.988518943742818,down,2.0,1.0,True
+43-6011,Executive secretaries and executive administrative assistants,0.3,-17.3,-5.051664753157292,down,3.0,1.0,True
+43-6014,"Secretaries and administrative assistants, except legal, medical, and executive",1.4,-21.6,-9.988518943742818,down,2.0,1.0,False
+43-9021,Data entry keyers,0.1,-39.0,-29.96555683122848,down,2.0,1.0,True
+43-9061,"Office clerks, general",2.5,-21.6,-9.988518943742818,down,2.0,1.0,True
+43-9199,"Office and administrative support workers, all other",0.1,-23.4,-12.055109070034442,down,,,False
+47-2031,Carpenters,0.1,-12.9,0.0,none,2.0,1.0,False
+47-2111,Electricians,2.8,-12.9,0.0,none,3.0,1.0,False
+47-2152,"Plumbers, pipefitters, and steamfitters",0.8,-12.9,0.0,none,3.0,2.0,False
+47-2211,Sheet metal workers,0.1,-12.9,0.0,none,2.0,1.0,False
+49-1011,"First-line supervisors of mechanics, installers, and repairers",2.6,-12.9,0.0,none,3.0,1.0,False
+49-2094,"Electrical and electronics repairers, commercial and industrial equipment",0.2,-15.5,-2.985074626865669,down,3.0,1.0,False
+49-2096,"Electronic equipment installers and repairers, motor vehicles",0.6,-12.9,0.0,none,3.0,1.0,False
+49-3021,Automotive body and related repairers,0.1,-12.9,0.0,none,2.0,1.0,False
+49-3023,Automotive service technicians and mechanics,1.3,-12.9,0.0,none,3.0,1.0,False
+49-3031,Bus and truck mechanics and diesel engine specialists,0.3,-12.9,0.0,none,3.0,1.0,False
+49-3042,"Mobile heavy equipment mechanics, except engines",0.1,-12.9,0.0,none,3.0,1.0,False
+49-9021,"Heating, air conditioning, and refrigeration mechanics and installers",0.1,-12.9,0.0,none,3.0,1.0,False
+49-9041,Industrial machinery mechanics,12.9,4.5,19.977037887485636,up,3.0,1.0,True
+49-9043,"Maintenance workers, machinery",1.6,-17.3,-5.051664753157292,down,3.0,1.0,False
+49-9044,Millwrights,1.3,-8.6,4.936854190585538,up,2.0,1.0,True
+49-9071,"Maintenance and repair workers, general",8.0,-12.9,0.0,none,3.0,1.0,False
+49-9098,"Helpers--installation, maintenance, and repair workers",0.2,-12.9,0.0,none,2.0,1.0,False
+49-9099,"Installation, maintenance, and repair workers, all other",0.2,-12.9,0.0,none,2.0,1.0,False
+51-1011,First-line supervisors of production and operating workers,21.9,-12.9,0.0,none,3.0,1.0,False
+51-2021,"Coil winders, tapers, and finishers",0.2,-21.6,-9.988518943742818,down,2.0,1.0,True
+51-2028,"Electrical, electronic, and electromechanical assemblers, except coil winders, tapers, and finishers",10.7,-12.9,0.0,none,2.0,2.0,False
+51-2031,Engine and other machine assemblers,18.6,-23.4,-12.055109070034442,down,2.0,1.0,True
+51-2041,Structural metal fabricators and fitters,0.1,-21.6,-9.988518943742818,down,2.0,1.0,True
+51-2051,Fiberglass laminators and fabricators,0.1,-12.9,0.0,none,2.0,1.0,False
+51-2090,Miscellaneous assemblers and fabricators,126.0,-12.9,0.0,none,2.0,1.0,False
+51-4021,"Extruding and drawing machine setters, operators, and tenders, metal and plastic",0.3,-17.3,-5.051664753157292,down,2.0,1.0,False
+51-4022,"Forging machine setters, operators, and tenders, metal and plastic",0.9,-26.0,-15.040183696900112,down,2.0,1.0,True
+51-4023,"Rolling machine setters, operators, and tenders, metal and plastic",0.3,-21.6,-9.988518943742818,down,2.0,1.0,True
+51-4031,"Cutting, punching, and press machine setters, operators, and tenders, metal and plastic",26.5,-21.6,-9.988518943742818,down,2.0,1.0,True
+51-4032,"Drilling and boring machine tool setters, operators, and tenders, metal and plastic",0.4,-21.6,-9.988518943742818,down,2.0,1.0,True
+51-4033,"Grinding, lapping, polishing, and buffing machine tool setters, operators, and tenders, metal and plastic",2.0,-21.6,-9.988518943742818,down,2.0,1.0,True
+51-4034,"Lathe and turning machine tool setters, operators, and tenders, metal and plastic",0.4,-21.6,-9.988518943742818,down,2.0,1.0,True
+51-4035,"Milling and planing machine setters, operators, and tenders, metal and plastic",0.5,-26.0,-15.040183696900112,down,2.0,1.0,True
+51-4041,Machinists,9.1,-12.9,0.0,none,3.0,1.0,False
+51-4051,Metal-refining furnace operators and tenders,0.4,-17.3,-5.051664753157292,down,2.0,1.0,True
+51-4061,"Model makers, metal and plastic",0.1,-30.3,-19.977037887485636,down,3.0,1.0,False
+51-4071,Foundry mold and coremakers,0.4,-30.3,-19.977037887485636,down,2.0,1.0,False
+51-4072,"Molding, coremaking, and casting machine setters, operators, and tenders, metal and plastic",8.5,-17.3,-5.051664753157292,down,2.0,1.0,False
+51-4081,"Multiple machine tool setters, operators, and tenders, metal and plastic",13.4,-12.9,0.0,none,2.0,1.0,False
+51-4111,Tool and die makers,8.7,-21.6,-9.988518943742818,down,3.0,1.0,False
+51-4121,"Welders, cutters, solderers, and brazers",14.1,-12.9,0.0,none,2.0,1.0,False
+51-4122,"Welding, soldering, and brazing machine setters, operators, and tenders",4.2,-21.6,-9.988518943742818,down,2.0,1.0,True
+51-4191,"Heat treating equipment setters, operators, and tenders, metal and plastic",0.5,-21.6,-9.988518943742818,down,2.0,1.0,True
+51-4192,"Layout workers, metal and plastic",0.1,-12.9,0.0,none,2.0,1.0,False
+51-4193,"Plating machine setters, operators, and tenders, metal and plastic",0.9,-21.6,-9.988518943742818,down,2.0,1.0,True
+51-4194,"Tool grinders, filers, and sharpeners",0.1,-26.0,-15.040183696900112,down,2.0,1.0,False
+51-4199,"Metal workers and plastic workers, all other",0.2,-21.6,-9.988518943742818,down,,,False
+51-5112,Printing press operators,0.1,-12.9,0.0,none,2.0,1.0,False
+51-6031,Sewing machine operators,2.0,-12.9,0.0,none,2.0,1.0,False
+51-6062,"Textile cutting machine setters, operators, and tenders",0.1,-12.9,0.0,none,2.0,1.0,False
+51-6091,"Extruding and forming machine setters, operators, and tenders, synthetic and glass fibers",0.1,-12.9,0.0,none,2.0,1.0,False
+51-6093,Upholsterers,0.5,-12.9,0.0,none,2.0,1.0,False
+51-7042,"Woodworking machine setters, operators, and tenders, except sawing",0.1,-12.9,0.0,none,2.0,1.0,False
+51-8021,Stationary engineers and boiler operators,0.1,-12.9,0.0,none,3.0,1.0,False
+51-8031,Water and wastewater treatment plant and system operators,0.1,-21.6,-9.988518943742818,down,2.0,1.0,False
+51-9021,"Crushing, grinding, and polishing machine setters, operators, and tenders",0.4,-17.3,-5.051664753157292,down,2.0,1.0,False
+51-9022,"Grinding and polishing workers, hand",0.1,-30.3,-19.977037887485636,down,2.0,1.0,True
+51-9023,"Mixing and blending machine setters, operators, and tenders",0.4,-21.6,-9.988518943742818,down,2.0,1.0,True
+51-9032,"Cutting and slicing machine setters, operators, and tenders",0.2,-12.9,0.0,none,2.0,1.0,False
+51-9041,"Extruding, forming, pressing, and compacting machine setters, operators, and tenders",0.8,-12.9,0.0,none,2.0,1.0,False
+51-9061,"Inspectors, testers, sorters, samplers, and weighers",21.3,-12.9,0.0,none,2.0,1.0,False
+51-9111,Packaging and filling machine operators and tenders,0.7,-12.9,0.0,none,2.0,1.0,False
+51-9124,"Coating, painting, and spraying machine setters, operators, and tenders",4.5,-12.9,0.0,none,2.0,1.0,False
+51-9161,Computer numerically controlled tool operators,9.0,-21.6,-9.988518943742818,down,2.0,1.0,False
+51-9162,Computer numerically controlled tool programmers,1.2,-8.6,4.936854190585538,up,2.0,1.0,True
+51-9191,Adhesive bonding machine operators and tenders,0.1,-12.9,0.0,none,2.0,1.0,False
+51-9192,"Cleaning, washing, and metal pickling equipment operators and tenders",0.1,-12.9,0.0,none,2.0,1.0,False
+51-9198,Helpers--production workers,2.2,-21.6,-9.988518943742818,down,2.0,1.0,True
+51-9199,"Production workers, all other",8.6,-12.9,0.0,none,,,False
+53-1047,"First-line supervisors of transportation and material moving workers, except aircraft cargo handling supervisors",1.5,-12.9,0.0,none,3.0,4.0,False
+53-3032,Heavy and tractor-trailer truck drivers,1.0,-12.9,0.0,none,2.0,1.0,False
+53-3033,Light truck drivers,0.4,-12.9,0.0,none,2.0,1.0,False
+53-7011,Conveyor operators and tenders,0.2,-12.9,0.0,none,2.0,1.0,False
+53-7021,Crane and tower operators,0.2,-12.9,0.0,none,3.0,1.0,False
+53-7051,Industrial truck and tractor operators,10.3,-12.9,0.0,none,2.0,1.0,False
+53-7061,Cleaners of vehicles and equipment,0.2,-12.9,0.0,none,2.0,1.0,False
+53-7062,"Laborers and freight, stock, and material movers, hand",17.6,-12.9,0.0,none,2.0,2.0,False
+53-7063,Machine feeders and offbearers,0.4,-26.0,-15.040183696900112,down,2.0,1.0,True
+53-7064,"Packers and packagers, hand",2.2,-12.9,0.0,none,2.0,1.0,False
+53-7065,Stockers and order fillers,2.8,-12.9,0.0,none,2.0,1.0,False

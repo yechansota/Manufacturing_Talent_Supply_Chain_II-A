@@ -1,0 +1,18 @@
+soc2018,role,nem_code_2010,status,projected_change_pct,observed_change_pct,direction_correct,oews_2014,oews_2024
+49-9041,maintenance target,49-9041,compared,15.27777777777779,89.62131837307152,True,7130.0,13520.0
+49-9071,maintenance target,49-9071,compared,-3.296703296703285,-7.71775082690187,True,9070.0,8370.0
+47-2111,maintenance target,47-2111,compared,-5.128205128205121,-18.701298701298697,True,3850.0,3130.0
+49-9043,maintenance target,49-9043,compared,5.714285714285716,-49.857549857549856,False,3510.0,1760.0
+49-9044,maintenance target,49-9044,compared,5.882352941176472,-13.690476190476186,False,1680.0,1450.0
+51-2090,production feeder (II-B frame),,no one-to-one 2010 SOC source in the 2014-24 matrix,,,,,
+51-4031,production feeder (II-B frame),51-4031,compared,-22.905027932960888,42.92929292929293,False,17820.0,25470.0
+51-2031,production feeder (II-B frame),51-2031,compared,-2.970297029702962,84.99005964214712,False,10060.0,18610.0
+51-9061,production feeder (II-B frame),51-9061,compared,-3.314917127071826,26.888888888888896,False,18000.0,22840.0
+51-4121,production feeder (II-B frame),51-4121,compared,-3.658536585365846,82.17338217338217,False,8190.0,14920.0
+51-4081,production feeder (II-B frame),51-4081,compared,-3.2786885245901565,4.351395730706065,False,12180.0,12710.0
+51-4041,production feeder (II-B frame),51-4041,compared,6.000000000000005,-37.46223564954683,False,19860.0,12420.0
+51-2028,production feeder (II-B frame),,no one-to-one 2010 SOC source in the 2014-24 matrix,,,,,
+51-9161,production feeder (II-B frame),,no one-to-one 2010 SOC source in the 2014-24 matrix,,,,,
+51-4072,production feeder (II-B frame),51-4072,compared,-23.33333333333333,11.198208286674127,False,8930.0,9930.0
+51-4122,production feeder (II-B frame),51-4122,compared,-22.988505747126432,-46.08294930875576,True,8680.0,4680.0
+51-9124,production feeder (II-B frame),,no one-to-one 2010 SOC source in the 2014-24 matrix,,,,,

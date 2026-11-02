@@ -1,0 +1,778 @@
+
+==============================================================================
+  MANUFACTURING TALENT SUPPLY CHAIN II-A — WHERE EACH FLOOR JOB'S SUCCESSORS COME FROM — FULL PIPELINE
+==============================================================================
+Started (UTC): 2026-10-30T02:18:52+00:00
+Industry: NAICS 336300 Motor Vehicle Parts Manufacturing (national); CPS: manufacturing as a whole
+Inputs: O*NET 31.0 · OEWS May 2014, 2021–2025 · BLS Employment Projections 2025–35 and archive · CES · CPS 2020–2026
+
+==============================================================================
+  DATA CHECK — files present, SHA-256 manifest
+==============================================================================
+  [PASS] data/raw/onet/knowledge.csv
+  [PASS] data/raw/onet/essential_skills.csv
+  [PASS] data/raw/onet/transferable_skills.csv
+  [PASS] data/raw/oews/oesm25in4.zip
+  [PASS] data/raw/ep/occupation.xlsx
+  [PASS] data/raw/ep/education.xlsx
+  [PASS] data/raw/ep/nem-onet-to-soc-crosswalk.xlsx
+
+Manifest written: data/raw/MANIFEST.csv (111 files)
+RESULT: ALL REQUIRED FILES PRESENT
+-> exit 0 (5.5 s)
+
+==============================================================================
+  O*NET INGEST — schema, row counts, duplicates
+==============================================================================
+OK: 123,760 rating rows -> data/interim/project.duckdb
+           file_key                    file domain                                                           sha256  rows  occupations  elements  n_problems onet_release
+          knowledge           knowledge.csv      K 88092e17d16096cdebe292fee4389deb460edda24ae8b4637212c69c71562f55 60060          910        33           0         31.0
+   essential_skills    essential_skills.csv      S 68c4d31d8c55077238395dca40cc4e6d32e6a608b5474bb8264b1f98ae415bd7 18200          910        10           0         31.0
+transferable_skills transferable_skills.csv      S f17d0419e818a3bf2f55076510c76c4aef01cc8f5aee2670d2f44f6f44ac60f7 45500          910        25           0         31.0
+-> exit 0 (2.6 s)
+
+==============================================================================
+  OEWS NAICS 336300 — ingest and occupation re-validation
+==============================================================================
+OK: 401 OEWS rows for NAICS 336300
+Duplicate codes collapsed: ['13-1020', '51-2090']
+   soc6               role  in_oews_3363                                                                                                title  tot_emp  emp_rse  h_median           rule_applied  rule_pass                                                                                                                             note
+49-9041        target_core          True                                                                       Industrial Machinery Mechanics  13210.0      1.3     30.88                 target       True                                                                                                                                 
+49-9071        target_core          True                                                              Maintenance and Repair Workers, General   8170.0      1.6     30.31                 target       True                                                                                                                                 
+47-2111        target_core          True                                                                                         Electricians   2920.0      2.8     43.89                 target       True                                                                                                                                 
+49-9043        target_core          True                                                                       Maintenance Workers, Machinery   1690.0      3.0     29.58                 target       True                                                                                                                                 
+49-9044        target_core          True                                                                                          Millwrights   1340.0      2.2     43.95                 target       True                                                                                                                                 
+49-2094 target_sensitivity          True                            Electrical and Electronics Repairers, Commercial and Industrial Equipment    230.0     11.3     32.25                 target      False                                                                                                                                 
+17-3024 target_sensitivity          True                                    Electro-Mechanical and Mechatronics Technologists and Technicians    330.0      7.7     31.66                 target      False                                                                                                                                 
+51-2090        feeder_core          True                                                             Miscellaneous Assemblers and Fabricators 129460.0      0.9     20.97                 feeder       True                                                                                                                                 
+51-4031        feeder_core          True              Cutting, Punching, and Press Machine Setters, Operators, and Tenders, Metal and Plastic  27220.0      2.6     21.80                 feeder       True                                                                                                                                 
+51-2031        feeder_core          True                                                                  Engine and Other Machine Assemblers  19090.0      1.8     29.10                 feeder       True                                                                                                                                 
+51-9061        feeder_core          True                                                 Inspectors, Testers, Sorters, Samplers, and Weighers  21920.0      1.5     22.63                 feeder       True                                                                                                                                 
+51-4121        feeder_core          True                                                             Welders, Cutters, Solderers, and Brazers  14470.0      2.6     22.74                 feeder       True                                                                                                                                 
+51-4081        feeder_core          True                             Multiple Machine Tool Setters, Operators, and Tenders, Metal and Plastic  13810.0      3.0     23.05                 feeder       True                                                                                                                                 
+51-4041        feeder_core          True                                                                                           Machinists   9360.0      3.1     26.09                 feeder       True                                                                                                                                 
+51-2028        feeder_core          True Electrical, Electronic, and Electromechanical Assemblers, Except Coil Winders, Tapers, and Finishers  10990.0      3.3     20.29                 feeder       True                                                                                                                                 
+51-9161        feeder_core          True                                                       Computer Numerically Controlled Tool Operators   9200.0      4.1     22.91                 feeder       True                                                                                                                                 
+51-4072        feeder_core          True          Molding, Coremaking, and Casting Machine Setters, Operators, and Tenders, Metal and Plastic   8780.0      6.2     20.22                 feeder       True                                                                                                                                 
+51-4122        feeder_core          True                              Welding, Soldering, and Brazing Machine Setters, Operators, and Tenders   4270.0      5.4     20.74                 feeder       True                                                                                                                                 
+51-9124        feeder_core          True                              Coating, Painting, and Spraying Machine Setters, Operators, and Tenders   4640.0      7.2     21.98                 feeder       True                                                                                                                                 
+51-1011        sensitivity          True                                           First-Line Supervisors of Production and Operating Workers  22500.0      0.8     33.72 feeder (informational)       True                            meets feeder rule; design exclusion: Supervisory career path, not a maintenance feeder -> sensitivity
+51-4111        sensitivity          True                                                                                  Tool and Die Makers   8930.0      2.7     35.02 feeder (informational)       True meets feeder rule; design exclusion: Scarce skilled trade; counting it as a feeder double-counts scarce pools -> comparison only
+17-3026        sensitivity          True                                                 Industrial Engineering Technologists and Technicians   6130.0      1.3     30.55 feeder (informational)       True                                                                                                                                 
+53-7062   negative_control          True                                               Laborers and Freight, Stock, and Material Movers, Hand  18040.0      1.8     21.56 feeder (informational)       True                                                                                                                                 
+-> exit 0 (21.5 s)
+
+==============================================================================
+  BLS EP 2025–35 — tables and O*NET-SOC crosswalk check
+==============================================================================
+OK: Table 1.10 1112 rows, Table 5.4 831 rows, crosswalk 996 rows
+   soc6               role        bls_onet_codes          mapped_codes excluded_codes status
+49-9041        target_core            49-9041.00            49-9041.00                    OK
+49-9071        target_core            49-9071.00            49-9071.00                    OK
+47-2111        target_core            47-2111.00            47-2111.00                    OK
+49-9043        target_core            49-9043.00            49-9043.00                    OK
+49-9044        target_core            49-9044.00            49-9044.00                    OK
+49-2094 target_sensitivity            49-2094.00            49-2094.00                    OK
+17-3024 target_sensitivity 17-3024.00;17-3024.01 17-3024.00;17-3024.01                    OK
+51-2090        feeder_core 51-2092.00;51-2099.00            51-2092.00     51-2099.00     OK
+51-4031        feeder_core            51-4031.00            51-4031.00                    OK
+51-2031        feeder_core            51-2031.00            51-2031.00                    OK
+51-9061        feeder_core            51-9061.00            51-9061.00                    OK
+51-4121        feeder_core            51-4121.00            51-4121.00                    OK
+51-4081        feeder_core            51-4081.00            51-4081.00                    OK
+51-4041        feeder_core            51-4041.00            51-4041.00                    OK
+51-2028        feeder_core 51-2022.00;51-2023.00 51-2022.00;51-2023.00                    OK
+51-9161        feeder_core            51-9161.00            51-9161.00                    OK
+51-4072        feeder_core            51-4072.00            51-4072.00                    OK
+51-4122        feeder_core            51-4122.00            51-4122.00                    OK
+51-9124        feeder_core            51-9124.00            51-9124.00                    OK
+51-1011        sensitivity            51-1011.00            51-1011.00                    OK
+51-4111        sensitivity            51-4111.00            51-4111.00                    OK
+17-3026        sensitivity 17-3026.00;17-3026.01            17-3026.00     17-3026.01     OK
+53-7062   negative_control 53-7062.00;53-7062.04            53-7062.00     53-7062.04     OK
+-> exit 0 (1.4 s)
+
+==============================================================================
+  BLS PROJECTIONS INSIDE NAICS 3363 — factors, NEM two-stage reading, industry output, adjustment by Job Zone, automation share of adjustments (DL-14, 23, 28, 29, 34, 39)
+==============================================================================
+   soc6           role                                                                                                title  change_pct  bls_adjustment_pct
+00-0000 industry total                                                                               Total, all occupations       -13.9                 NaN
+49-9041    target_core                                                                       Industrial machinery mechanics         4.5                20.0
+49-9071    target_core                                                              Maintenance and repair workers, general       -12.9                 0.0
+47-2111    target_core                                                                                         Electricians       -12.9                 0.0
+49-9043    target_core                                                                       Maintenance workers, machinery       -17.3                -5.1
+49-9044    target_core                                                                                          Millwrights        -8.6                 4.9
+51-2090    feeder_core                                                             Miscellaneous assemblers and fabricators       -12.9                 0.0
+51-4031    feeder_core              Cutting, punching, and press machine setters, operators, and tenders, metal and plastic       -21.6               -10.0
+51-2031    feeder_core                                                                  Engine and other machine assemblers       -23.4               -12.1
+51-9061    feeder_core                                                 Inspectors, testers, sorters, samplers, and weighers       -12.9                 0.0
+51-4121    feeder_core                                                             Welders, cutters, solderers, and brazers       -12.9                 0.0
+51-4081    feeder_core                             Multiple machine tool setters, operators, and tenders, metal and plastic       -12.9                 0.0
+51-4041    feeder_core                                                                                           Machinists       -12.9                 0.0
+51-2028    feeder_core Electrical, electronic, and electromechanical assemblers, except coil winders, tapers, and finishers       -12.9                 0.0
+51-9161    feeder_core                                                       Computer numerically controlled tool operators       -21.6               -10.0
+51-4072    feeder_core          Molding, coremaking, and casting machine setters, operators, and tenders, metal and plastic       -17.3                -5.1
+51-4122    feeder_core                              Welding, soldering, and brazing machine setters, operators, and tenders       -21.6               -10.0
+51-9124    feeder_core                              Coating, painting, and spraying machine setters, operators, and tenders       -12.9                 0.0
+51-9162        context                                                     Computer numerically controlled tool programmers        -8.6                 4.9
+51-1011        context                                           First-line supervisors of production and operating workers       -12.9                 0.0
+51-4111        context                                                                                  Tool and die makers       -21.6               -10.0
+53-7062        context                                               Laborers and freight, stock, and material movers, hand       -12.9                 0.0
+-> exit 0 (2.4 s)
+
+==============================================================================
+  OBSERVED TREND — CES employment, NAICS 3363 (DL-26)
+==============================================================================
+SeriesReport-20261019072345_501ecf.xlsx: 128 months, 2016-01 to 2026-08; complete years 10
+ year  emp_k  months  complete
+ 2016  581.2      12      True
+ 2017  589.2      12      True
+ 2018  599.7      12      True
+ 2019  594.1      12      True
+ 2020  530.3      12      True
+ 2021  541.8      12      True
+ 2022  551.9      12      True
+ 2023  563.8      12      True
+ 2024  550.8      12      True
+ 2025  524.7      12      True
+ 2026  514.1       8     False
+-> exit 0 (0.7 s)
+
+==============================================================================
+  OBSERVED MIX — OEWS May 2021–2025 inside NAICS 3363 (DL-29)
+==============================================================================
+year                                        2021      2022      2023      2024      2025
+role                           soc6                                                     
+context                        17-3024     310.0     230.0     250.0     420.0     330.0
+                               51-1011   21060.0   22860.0   23110.0   24410.0   22500.0
+                               51-4111   11670.0   11000.0    9760.0    9140.0    8930.0
+                               51-9162     770.0     660.0     990.0    1570.0    1260.0
+industry total (OEWS)          00-0000  537960.0  543610.0  557020.0  553200.0  538980.0
+maintenance family (5 targets) FAMILY    29130.0   28700.0   28460.0   28230.0   27330.0
+maintenance target             47-2111    4000.0    4130.0    3580.0    3130.0    2920.0
+                               49-9041   11770.0   11910.0   12700.0   13520.0   13210.0
+                               49-9043    3570.0    3340.0    2650.0    1760.0    1690.0
+                               49-9044    1570.0    1820.0    1500.0    1450.0    1340.0
+                               49-9071    8220.0    7500.0    8030.0    8370.0    8170.0
+     year    soc6                           role  emp_change  emp_change_pct  z_change  premium_mean_change_pts  premium_mean_change_z
+2021-2025 49-9041             maintenance target      1440.0            12.2       4.4                      NaN                    NaN
+2021-2025 49-9071             maintenance target       -50.0            -0.6      -0.3                    -14.6                  -16.4
+2021-2025 47-2111             maintenance target     -1080.0           -27.0     -10.6                     -3.4                   -5.7
+2021-2025 49-9043             maintenance target     -1880.0           -52.7     -15.4                     -5.6                   -5.1
+2021-2025 49-9044             maintenance target      -230.0           -14.6      -6.7                     -4.0                   -8.0
+2021-2025 51-9162                        context       490.0            63.6       3.5                      NaN                    NaN
+2021-2025 17-3024                        context        20.0             6.5       0.6                      NaN                    NaN
+2021-2025 51-1011                        context      1440.0             6.8       4.0                      NaN                    NaN
+2021-2025 51-4111                        context     -2740.0           -23.5      -8.4                      NaN                    NaN
+2021-2025  FAMILY maintenance family (5 targets)     -1800.0            -6.2       NaN                      NaN                    NaN
+2021-2025 00-0000          industry total (OEWS)      1020.0             0.2       NaN                      NaN                    NaN
+2022-2025 49-9041             maintenance target      1300.0            10.9       5.1                      NaN                    NaN
+2022-2025 49-9071             maintenance target       670.0             8.9       4.0                     -6.2                   -7.2
+2022-2025 47-2111             maintenance target     -1210.0           -29.3     -10.7                     -3.0                   -5.0
+2022-2025 49-9043             maintenance target     -1650.0           -49.4     -15.5                     -0.2                   -0.2
+2022-2025 49-9044             maintenance target      -480.0           -26.4     -10.6                     -4.7                   -7.7
+2022-2025 51-9162                        context       600.0            90.9       4.4                      NaN                    NaN
+2022-2025 17-3024                        context       100.0            43.5       2.9                      NaN                    NaN
+2022-2025 51-1011                        context      -360.0            -1.6      -1.0                      NaN                    NaN
+2022-2025 51-4111                        context     -2070.0           -18.8      -7.2                      NaN                    NaN
+2022-2025  FAMILY maintenance family (5 targets)     -1370.0            -4.8       NaN                      NaN                    NaN
+2022-2025 00-0000          industry total (OEWS)     -4630.0            -0.9       NaN                      NaN                    NaN
+-> exit 0 (108.2 s)
+
+==============================================================================
+  SKILL SHIFT — inside the maintenance family: levels, software, tasks (DL-30)
+==============================================================================
+     other                             other_title  elements  with_se  anchor_higher_z_gt_1.96  anchor_lower_z_lt_-1.96  anchor_higher_bh  anchor_lower_bh  anchor_higher_bonferroni  anchor_lower_bonferroni
+47-2111.00                            Electricians        68       65                        5                       12                 3               10                         3                        8
+49-9043.00          Maintenance Workers, Machinery        68       65                       17                        1                14                1                         8                        0
+49-9044.00                             Millwrights        68       30                        8                        8                 2                6                         0                        0
+49-9071.00 Maintenance and Repair Workers, General        68       64                        7                        3                 4                0                         2                        0
+ onet_code                                                                    title                              role  software_examples  software_categories  hot_technology  in_demand  industrial_control_examples  tasks  core_tasks task_rating_date  tasks_programming_plc_software_computer  tasks_electrical_electronic  tasks_robot_automation  tasks_diagnose_troubleshoot_test
+49-9041.00                                           Industrial Machinery Mechanics                maintenance target                 15                   12               6          0                            4     16          15          08/2021                                        1                            0                       0                                 4
+49-9043.00                                           Maintenance Workers, Machinery                maintenance target                 11                   10               6          0                            0     18          17          08/2024                                        0                            0                       0                                 2
+49-9071.00                                  Maintenance and Repair Workers, General                maintenance target                 35                   21              15          1                            2     27          21          08/2021                                        0                            2                       0                                 3
+49-9044.00                                                              Millwrights                maintenance target                  7                    6               7          0                            0     23          22          08/2024                                        1                            1                       1                                 2
+47-2111.00                                                             Electricians                maintenance target                 30                   14               8          0                            3     21          20          08/2022                                        0                            8                       0                                 4
+51-9161.00                           Computer Numerically Controlled Tool Operators          close feeder (Skills H1)                 58                   16               9          1                            3     27          24          08/2023                                        9                            1                       2                                 3
+51-4081.00 Multiple Machine Tool Setters, Operators, and Tenders, Metal and Plastic          close feeder (Skills H1)                  8                    7               7          0                            0     21          18          08/2021                                        1                            1                       1                                 1
+51-4041.00                                                               Machinists          close feeder (Skills H1)                 33                   12               8          2                            2     29          20          08/2020                                        2                            2                       0                                 4
+51-9162.00                         Computer Numerically Controlled Tool Programmers                           context                 78                   13               9          6                            0     16          14          08/2025                                        9                            0                       0                                 0
+17-3024.00        Electro-Mechanical and Mechatronics Technologists and Technicians                           context                 41                   19              15          0                            4     28          12  08/2022;11/2020                                        5                            5                       4                                 5
+17-3024.01                                                     Robotics Technicians context (O*NET detail of 17-3024)                 51                   16              22          5                           19     22          15          08/2018                                        6                            2                      18                                 4
+-> exit 0 (1.9 s)
+
+==============================================================================
+  FLOOR SUCCESSION MAP — every floor position with ≥ 1,000 jobs; bootstrap, rule variants, cross-part links (DL-31–33)
+==============================================================================
+positions without an O*NET Skills profile (excluded): 51-9199
+   soc6  jobs_2025  a_median  job_zone  nem_change_pct  n_eligible_sources  n_close_sources  close_source_jobs top1_source  top1_P  top1_stability  flag_no_close_internal_source  flag_close_sources_all_below_baseline  nearest_any_earns_more
+51-2090   129460.0     43620         2           -12.9                   6                0                0.0     51-4122    58.6             0.0                           True                                  False                    True
+51-4031    27220.0     45350         2           -21.6                  10                3           142510.0     51-4122    21.7             0.8                          False                                  False                    True
+51-1011    22500.0     70140         3           -12.9                  27                2             7630.0     53-1047    11.9             1.0                          False                                  False                    True
+51-9061    21920.0     47070         2           -12.9                  13                0                0.0     51-2090    31.8             0.2                           True                                  False                    True
+51-2031    19090.0     60530         2           -23.4                  19                8           212670.0     51-4081     4.5             1.0                          False                                  False                    True
+53-7062    18040.0     44840         2           -12.9                   8                1           129460.0     51-2090    17.2             0.8                          False                                  False                    True
+51-4121    14470.0     47300         2           -12.9                  14                3            51190.0     51-9061    19.0             0.8                          False                                  False                    True
+51-4081    13810.0     47940         2           -12.9                  16                1             9200.0     51-9161     3.9             1.0                          False                                   True                    True
+49-9041    13210.0     64220         3             4.5                  25                8            50970.0     49-9071     2.9             1.0                          False                                  False                    True
+51-2028    10990.0     42210         2           -12.9                   4                0                0.0     51-4072    35.2             0.1                           True                                  False                    True
+53-7051    10570.0     44430         2           -12.9                   7                2           133730.0     51-4122    19.7             0.8                          False                                  False                    True
+51-4041     9360.0     54270         3           -12.9                  19                3            24360.0     51-9161     5.4             1.0                          False                                  False                    True
+51-9161     9200.0     47650         2           -21.6                  15                0                0.0     51-9061    38.4             0.0                           True                                  False                    True
+51-4111     8930.0     72840         3           -21.6                  28               10            86680.0     49-9041     2.3             1.0                          False                                  False                    True
+51-4072     8780.0     42050         2           -17.3                   3                0                0.0     51-6031    93.9             0.0                           True                                  False                    True
+49-9071     8170.0     63040         3           -12.9                  23                6            36670.0     49-3023     4.1             1.0                          False                                  False                    True
+17-3026     6130.0     63550         3           -12.9                  24                0                0.0     51-9162    42.5             0.1                           True                                  False                    True
+51-9124     4640.0     45730         2           -12.9                  11                4           169730.0     51-4031    21.6             0.7                          False                                  False                    True
+51-4122     4270.0     43130         2           -21.6                   5                0                0.0     51-2028    37.3             0.0                           True                                  False                    True
+47-2111     2920.0     91290         3           -12.9                  30                9            65210.0     51-1011     4.4             1.0                          False                                  False                    True
+53-7065     2900.0     44890         2           -12.9                   9                0                0.0     51-2090    33.8             0.2                           True                                  False                    True
+49-1011     2700.0     95040         3           -12.9                  32                5            34940.0     51-1011     2.8             1.0                          False                                  False                   False
+51-9198     2270.0     41590         2           -21.6                   2                0                0.0     51-6031    48.2             0.0                           True                                  False                    True
+53-7064     2240.0     37380         2           -12.9                   0                0                0.0         NaN     NaN             NaN                           True                                  False                    True
+51-4033     2050.0     46310         2           -21.6                  12                4            44910.0     51-4031    14.5             0.9                          False                                  False                    True
+51-6031     2020.0     38120         2           -12.9                   1                0                0.0     53-7064    99.1             0.0                           True                                  False                    True
+17-3027     1890.0     78210         3           -17.3                  29                5            52300.0     17-3026     3.5             1.0                          False                                  False                    True
+49-9043     1690.0     61530         3           -17.3                  22               12           102050.0     49-3023     3.0             1.0                          False                                  False                    True
+53-1047     1500.0     64700         3           -12.9                  26                1             6130.0     17-3026    20.4             0.8                          False                                  False                    True
+49-3023     1350.0     47910         3           -12.9                  16                1             9200.0     51-9161     8.6             1.0                          False                                   True                    True
+49-9044     1340.0     91410         2            -8.6                  20                3            24270.0     51-4081     9.8             0.9                          False                                  False                   False
+51-9162     1260.0     57520         2            -8.6                  18                2            23010.0     51-9161     6.8             1.0                          False                                  False                    True
+53-3032     1020.0     48300         2           -12.9                  17                5           183960.0     51-9161     5.7             1.0                          False                                  False                    True
+
+Rule variants and bootstrap (DL-32)
+                                                             variant  n_positions  n_no_close  n_no_close_lo  n_no_close_hi  jobs_no_close  maintenance_bench_min  supervisors_bench  supervisors_rank_thinnest_among_job_zone_3plus thinnest_job_zone_3plus
+              base: earns less, Job Zone <= target, P <= 25 (Skills)           33        11.0            NaN            NaN       200180.0                   3.86               0.34                                             2.0                 17-3026
+                                         stricter closeness: P <= 15           33        17.0            NaN            NaN       276620.0                   3.86               0.34                                             3.0                 17-3026
+                                           looser closeness: P <= 35           33         9.0            NaN            NaN       175360.0                   9.10               0.34                                             2.0                 17-3026
+                                   wage rule only (no Job Zone rule)           33        11.0            NaN            NaN       200180.0                   3.86               0.34                                             2.0                 17-3026
+                                   Job Zone rule only (no wage rule)           33         0.0            NaN            NaN            0.0                   6.91               0.59                                             1.0                 51-1011
+           lateral moves: earns < 110% of target, Job Zone <= target           33         4.0            NaN            NaN        13290.0                   5.56               0.34                                             2.0                 17-3026
+                             Knowledge instead of Skills (base rule)           33         8.0            NaN            NaN       152960.0                  13.00               6.09                                             2.0                 53-1047
+base rule, Skills ratings redrawn (bootstrap B = 200, seed 20261022)           33        11.0           10.0           12.0       200180.0                   3.86               0.34                                             NaN                     NaN
+
+close pairs at the point estimate: 98; close in < 80% of draws: 23; not close at the point estimate but close in >= 50% of draws: 0
+-> exit 0 (12.8 s)
+
+==============================================================================
+  PROJECTION TRACK RECORD — archived BLS projections for NAICS 3363 vs CES and OEWS (DL-38, 40, 41)
+==============================================================================
+vintage  base_year  target_year  available  archive_base_k  archive_proj_k  ces_base_k  ces_target_k  base_gap_pct  projected_change_pct  actual_change_pct  error_pct  direction_correct  pandemic_target_year
+2008-18       2008         2018       True           544.4           443.3      543.71        599.73          0.13                -18.57              10.30     -26.08              False                 False
+2010-20       2010         2020       True           415.1           394.9      418.85        530.31         -0.90                 -4.87              26.61     -25.53              False                  True
+2012-22       2012         2022       True           479.6           507.5      482.75        551.88         -0.65                  5.82              14.32      -8.04               True                 False
+2014-24       2014         2024       True           536.6           514.0      536.97        550.84         -0.07                 -4.21               2.58      -6.69              False                 False
+{'n_line_items': 176, 'n_compared': 144, 'excluded': {'no one-to-one 2010->2018 SOC match': 18, 'no numeric OEWS May 2024 employment': 14}, 'direction_correct_n': 44, 'direction_correct_share_pct': 30.556, 'direction_correct_emp_weighted_pct': 35.636, 'spearman_rho': 0.19, 'spearman_p': 0.023, 'share_error_bls_pts': 35.397, 'share_error_naive_pts': 35.471, 'industry_projected_change_pct': -4.212}
+soc2018                           role nem_code_2010                                              status  projected_change_pct  observed_change_pct direction_correct  oews_2014  oews_2024
+49-9041             maintenance target       49-9041                                            compared                  15.3                 89.6              True     7130.0    13520.0
+49-9071             maintenance target       49-9071                                            compared                  -3.3                 -7.7              True     9070.0     8370.0
+47-2111             maintenance target       47-2111                                            compared                  -5.1                -18.7              True     3850.0     3130.0
+49-9043             maintenance target       49-9043                                            compared                   5.7                -49.9             False     3510.0     1760.0
+49-9044             maintenance target       49-9044                                            compared                   5.9                -13.7             False     1680.0     1450.0
+51-2090 production feeder (II-B frame)           NaN no one-to-one 2010 SOC source in the 2014-24 matrix                   NaN                  NaN               NaN        NaN        NaN
+51-4031 production feeder (II-B frame)       51-4031                                            compared                 -22.9                 42.9             False    17820.0    25470.0
+51-2031 production feeder (II-B frame)       51-2031                                            compared                  -3.0                 85.0             False    10060.0    18610.0
+51-9061 production feeder (II-B frame)       51-9061                                            compared                  -3.3                 26.9             False    18000.0    22840.0
+51-4121 production feeder (II-B frame)       51-4121                                            compared                  -3.7                 82.2             False     8190.0    14920.0
+51-4081 production feeder (II-B frame)       51-4081                                            compared                  -3.3                  4.4             False    12180.0    12710.0
+51-4041 production feeder (II-B frame)       51-4041                                            compared                   6.0                -37.5             False    19860.0    12420.0
+51-2028 production feeder (II-B frame)           NaN no one-to-one 2010 SOC source in the 2014-24 matrix                   NaN                  NaN               NaN        NaN        NaN
+51-9161 production feeder (II-B frame)           NaN no one-to-one 2010 SOC source in the 2014-24 matrix                   NaN                  NaN               NaN        NaN        NaN
+51-4072 production feeder (II-B frame)       51-4072                                            compared                 -23.3                 11.2             False     8930.0     9930.0
+51-4122 production feeder (II-B frame)       51-4122                                            compared                 -23.0                -46.1              True     8680.0     4680.0
+51-9124 production feeder (II-B frame)           NaN no one-to-one 2010 SOC source in the 2014-24 matrix                   NaN                  NaN               NaN        NaN        NaN
+-> exit 0 (74.9 s)
+
+==============================================================================
+  CPS AGE PROFILE AND FLOWS — floor occupations in manufacturing (DL-44)
+==============================================================================
+civilian adult records 6,539,550; linked pairs 4,326,472; files 80
+ year  eligible_records  linked_pairs  link_rate_pct
+ 2020            718364        636047      88.541046
+ 2021            784305        706065      90.024289
+ 2022            751008        674794      89.851773
+ 2023            735287        661916      90.021447
+ 2024            733763        661520      90.154450
+ 2025            589271        526953      89.424560
+ 2026            515713        459177      89.037313
+        check                       group  band   n_den   n_num     pct      lo      hi  reportable not_reportable_reason     role
+  all_records               maintenance_M 16-34   12843    3290 26.6165 24.9860 28.3500        True                       headline
+  all_records               maintenance_M 35-54   12843    5688 44.8058 42.9715 46.8601        True                       headline
+  all_records               maintenance_M 55-64   12843    3058 23.2427 21.6866 24.8994        True                       headline
+  all_records               maintenance_M   65+   12843     807  5.3351  4.5383  6.1423        True                       headline
+  all_records               maintenance_M   55+   12843    3865 28.5778 26.7940 30.3657        True                       headline
+  all_records             machinists_8030 16-34    6712    1757 27.8969 25.4419 30.2957        True                       headline
+  all_records             machinists_8030 35-54    6712    2672 40.2562 37.6963 43.0202        True                       headline
+  all_records             machinists_8030 55-64    6712    1760 25.3191 22.8041 27.6873        True                       headline
+  all_records             machinists_8030   65+    6712     523  6.5278  5.3769  7.9453        True                       headline
+  all_records             machinists_8030   55+    6712    2283 31.8469 29.1480 34.4040        True                       headline
+  all_records                  mixed_7905 16-34    1794     577 33.1296 28.5503 38.0763        True                       headline
+  all_records                  mixed_7905 35-54    1794     755 42.8293 37.7196 47.6527        True                       headline
+  all_records                  mixed_7905 55-64    1794     380 19.9852 15.9355 24.0590        True                       headline
+  all_records                  mixed_7905   65+    1794      82  4.0559  2.2334  6.1762        True                       headline
+  all_records                  mixed_7905   55+    1794     462 24.0410 19.5350 28.4847        True                       headline
+  all_records                  mixed_8225 16-34    7410    2201 32.4195 30.0616 34.7782        True                       headline
+  all_records                  mixed_8225 35-54    7410    3139 41.8559 39.5552 44.3220        True                       headline
+  all_records                  mixed_8225 55-64    7410    1606 20.4454 18.5610 22.5087        True                       headline
+  all_records                  mixed_8225   65+    7410     464  5.2793  4.2720  6.3320        True                       headline
+  all_records                  mixed_8225   55+    7410    2070 25.7246 23.6174 27.9197        True                       headline
+  all_records                      rest_R 16-34  112171   35084 33.3856 32.7411 34.0562        True                       headline
+  all_records                      rest_R 35-54  112171   47751 42.7125 42.0107 43.3875        True                       headline
+  all_records                      rest_R 55-64  112171   22652 18.9415 18.3875 19.4782        True                       headline
+  all_records                      rest_R   65+  112171    6684  4.9603  4.6791  5.2332        True                       headline
+  all_records                      rest_R   55+  112171   29336 23.9019 23.3050 24.4592        True                       headline
+  all_records                production_P 16-34  128087   39619 33.0430 32.4489 33.6407        True                       headline
+  all_records                production_P 35-54  128087   54317 42.5370 41.8851 43.1989        True                       headline
+  all_records                production_P 55-64  128087   26398 19.3734 18.8615 19.9012        True                       headline
+  all_records                production_P   65+  128087    7753  5.0466  4.7657  5.2969        True                       headline
+  all_records                production_P   55+  128087   34151 24.4200 23.8565 24.9714        True                       headline
+  all_records           all_manufacturing 16-34  349998   96978 30.0202 29.6162 30.3771        True                       headline
+  all_records           all_manufacturing 35-54  349998  154666 44.3331 43.9029 44.7477        True                       headline
+  all_records           all_manufacturing 55-64  349998   74726 20.0065 19.6823 20.3292        True                       headline
+  all_records           all_manufacturing   65+  349998   23628  5.6402  5.4560  5.8196        True                       headline
+  all_records           all_manufacturing   55+  349998   98354 25.6468 25.2685 26.0220        True                       headline
+no_allocation               maintenance_M 16-34   12512    3189 26.4507 24.7957 28.2227        True                          check
+no_allocation               maintenance_M 35-54   12512    5545 44.8262 42.9459 46.9466        True                          check
+no_allocation               maintenance_M 55-64   12512    2999 23.4211 21.7996 25.1151        True                          check
+no_allocation               maintenance_M   65+   12512     779  5.3020  4.5061  6.1124        True                          check
+no_allocation               maintenance_M   55+   12512    3778 28.7231 26.9302 30.5114        True                          check
+no_allocation             machinists_8030 16-34    6577    1718 27.6939 25.2194 30.0745        True                          check
+no_allocation             machinists_8030 35-54    6577    2608 40.1572 37.5598 42.9920        True                          check
+no_allocation             machinists_8030 55-64    6577    1743 25.6857 23.1225 28.1461        True                          check
+no_allocation             machinists_8030   65+    6577     508  6.4632  5.3210  7.9195        True                          check
+no_allocation             machinists_8030   55+    6577    2251 32.1489 29.4184 34.7562        True                          check
+no_allocation                  mixed_7905 16-34    1750     561 33.1178 28.4377 38.0727        True                          check
+no_allocation                  mixed_7905 35-54    1750     740 42.9679 37.8128 48.1383        True                          check
+no_allocation                  mixed_7905 55-64    1750     373 20.1581 16.0545 24.3569        True                          check
+no_allocation                  mixed_7905   65+    1750      76  3.7562  1.9382  5.9073        True                          check
+no_allocation                  mixed_7905   55+    1750     449 23.9143 19.3648 28.4762        True                          check
+no_allocation                  mixed_8225 16-34    7231    2134 32.2127 29.8743 34.5519        True                          check
+no_allocation                  mixed_8225 35-54    7231    3080 42.1107 39.6938 44.5821        True                          check
+no_allocation                  mixed_8225 55-64    7231    1584 20.6294 18.6655 22.7570        True                          check
+no_allocation                  mixed_8225   65+    7231     433  5.0473  4.0221  6.1142        True                          check
+no_allocation                  mixed_8225   55+    7231    2017 25.6766 23.6085 27.9555        True                          check
+no_allocation                      rest_R 16-34  109194   33973 33.1545 32.5004 33.8242        True                          check
+no_allocation                      rest_R 35-54  109194   46625 42.8607 42.1453 43.5648        True                          check
+no_allocation                      rest_R 55-64  109194   22166 19.0769 18.5218 19.6359        True                          check
+no_allocation                      rest_R   65+  109194    6430  4.9079  4.6272  5.1829        True                          check
+no_allocation                      rest_R   55+  109194   28596 23.9848 23.3865 24.5524        True                          check
+no_allocation                production_P 16-34  124752   38386 32.8165 32.2107 33.4314        True                          check
+no_allocation                production_P 35-54  124752   53053 42.6781 42.0192 43.3542        True                          check
+no_allocation                production_P 55-64  124752   25866 19.5258 18.9852 20.0746        True                          check
+no_allocation                production_P   65+  124752    7447  4.9796  4.6898  5.2315        True                          check
+no_allocation                production_P   55+  124752   33313 24.5054 23.9339 25.0690        True                          check
+no_allocation           all_manufacturing 16-34  337780   92889 29.7622 29.3482 30.1329        True                          check
+no_allocation           all_manufacturing 35-54  337780  149699 44.4714 44.0352 44.9070        True                          check
+no_allocation           all_manufacturing 55-64  337780   72650 20.1869 19.8512 20.5199        True                          check
+no_allocation           all_manufacturing   65+  337780   22542  5.5794  5.3955  5.7615        True                          check
+no_allocation           all_manufacturing   55+  337780   95192 25.7664 25.3819 26.1557        True                          check
+  all_records all_employed_all_industries 16-34 3765898 1183433 34.5636 34.4241 34.7113        True                       headline
+  all_records all_employed_all_industries 35-54 3765898 1586002 41.9723 41.8254 42.1265        True                       headline
+  all_records all_employed_all_industries 55-64 3765898  676331 16.6381 16.5342 16.7417        True                       headline
+  all_records all_employed_all_industries   65+ 3765898  320132  6.8260  6.7605  6.8973        True                       headline
+  all_records all_employed_all_industries   55+ 3765898  996463 23.4641 23.3442 23.5876        True                       headline
+no_allocation all_employed_all_industries 16-34 3643303 1139433 34.3889 34.2493 34.5401        True                          check
+no_allocation all_employed_all_industries 35-54 3643303 1538271 42.1005 41.9471 42.2579        True                          check
+no_allocation all_employed_all_industries 55-64 3643303  656753 16.7109 16.6041 16.8174        True                          check
+no_allocation all_employed_all_industries   65+ 3643303  308846  6.7997  6.7304  6.8719        True                          check
+no_allocation all_employed_all_industries   55+ 3643303  965599 23.5106 23.3893 23.6359        True                          check
+        check         group band  n_den  n_num     pct      lo      hi  reportable not_reportable_reason   year     role
+  all_records maintenance_M  55+   2127    642 27.0753 23.6430 30.7132        True                       2020.0 headline
+  all_records maintenance_M  55+   2085    662 30.5549 26.7732 34.5724        True                       2021.0 headline
+  all_records maintenance_M  55+   1940    571 28.2926 24.4766 32.2994        True                       2022.0 headline
+  all_records maintenance_M  55+   1956    599 28.5245 24.4878 32.1788        True                       2023.0 headline
+  all_records maintenance_M  55+   1859    569 30.3469 26.1693 34.6706        True                       2024.0 headline
+  all_records maintenance_M  55+   1689    483 27.6124 23.7814 31.8264        True                       2025.0 headline
+  all_records maintenance_M  55+   1187    339 27.3119 22.6299 32.3248        True                       2026.0 headline
+  all_records  production_P  55+  20596   5488 23.7260 22.5808 24.8781        True                       2020.0 headline
+  all_records  production_P  55+  21509   5491 23.7892 22.6914 25.0104        True                       2021.0 headline
+  all_records  production_P  55+  20375   5480 25.1849 24.0001 26.4090        True                       2022.0 headline
+  all_records  production_P  55+  20106   5367 24.3188 23.2248 25.6178        True                       2023.0 headline
+  all_records  production_P  55+  18245   4909 24.6824 23.4915 25.8889        True                       2024.0 headline
+  all_records  production_P  55+  15380   4103 24.4673 23.2097 25.7677        True                       2025.0 headline
+  all_records  production_P  55+  11876   3313 24.9008 23.4593 26.3670        True                       2026.0 headline
+no_allocation maintenance_M  55+   2072    625 27.0281 23.5174 30.6894        True                       2020.0    check
+no_allocation maintenance_M  55+   2028    645 30.5992 26.7528 34.6817        True                       2021.0    check
+no_allocation maintenance_M  55+   1891    562 28.6695 24.7895 32.7256        True                       2022.0    check
+no_allocation maintenance_M  55+   1903    584 28.6735 24.5083 32.4453        True                       2023.0    check
+no_allocation maintenance_M  55+   1812    554 30.4052 26.2264 34.7613        True                       2024.0    check
+no_allocation maintenance_M  55+   1648    471 27.5935 23.7187 31.8953        True                       2025.0    check
+no_allocation maintenance_M  55+   1158    337 27.8968 23.0846 33.0704        True                       2026.0    check
+no_allocation  production_P  55+  20068   5350 23.7261 22.5919 24.8889        True                       2020.0    check
+no_allocation  production_P  55+  20836   5306 23.8132 22.6794 25.0425        True                       2021.0    check
+no_allocation  production_P  55+  19840   5355 25.3365 24.1294 26.5762        True                       2022.0    check
+no_allocation  production_P  55+  19617   5252 24.4331 23.3142 25.7266        True                       2023.0    check
+no_allocation  production_P  55+  17841   4806 24.7316 23.5578 25.9058        True                       2024.0    check
+no_allocation  production_P  55+  14966   4003 24.5780 23.2717 25.8780        True                       2025.0    check
+no_allocation  production_P  55+  11584   3241 25.0657 23.5893 26.5506        True                       2026.0    check
+                 check                  role age_band                category  n_den  n_num     pct      lo      hi  reportable not_reportable_reason
+headline_no_allocation headline (DL-42 rule)      all     mfg_same_occupation  80890  73891 90.9771 90.7169 91.2273        True                      
+headline_no_allocation headline (DL-42 rule)      all    mfg_other_production  80890   1651  2.1304  1.9977  2.2617        True                      
+headline_no_allocation headline (DL-42 rule)      all         mfg_maintenance  80890     82  0.0993  0.0766  0.1231        True                      
+headline_no_allocation headline (DL-42 rule)      all    mfg_other_occupation  80890   1034  1.3538  1.2569  1.4505        True                      
+headline_no_allocation headline (DL-42 rule)      all outside_mfg_maintenance  80890     29  0.0406  0.0250  0.0573        True                      
+headline_no_allocation headline (DL-42 rule)      all       outside_mfg_other  80890   1371  1.8248  1.7203  1.9482        True                      
+headline_no_allocation headline (DL-42 rule)      all              unemployed  80890   1030  1.3374  1.2455  1.4355        True                      
+headline_no_allocation headline (DL-42 rule)      all                 retired  80890    419  0.4424  0.3942  0.4913        True                      
+headline_no_allocation headline (DL-42 rule)      all                disabled  80890    200  0.2485  0.2084  0.2892        True                      
+headline_no_allocation headline (DL-42 rule)      all              other_nilf  80890   1183  1.5457  1.4426  1.6596        True                      
+headline_no_allocation headline (DL-42 rule)    16-34     mfg_same_occupation  24315  21862 89.4885 88.9793 89.9667        True                      
+headline_no_allocation headline (DL-42 rule)    16-34    mfg_other_production  24315    532  2.2814  2.0418  2.5449        True                      
+headline_no_allocation headline (DL-42 rule)    16-34         mfg_maintenance  24315     26  0.1085  0.0634  0.1558        True                      
+headline_no_allocation headline (DL-42 rule)    16-34    mfg_other_occupation  24315    334  1.4716  1.2896  1.6552        True                      
+headline_no_allocation headline (DL-42 rule)    16-34 outside_mfg_maintenance  24315     10  0.0411  0.0154  0.0715        True                      
+headline_no_allocation headline (DL-42 rule)    16-34       outside_mfg_other  24315    579  2.5008  2.2782  2.7432        True                      
+headline_no_allocation headline (DL-42 rule)    16-34              unemployed  24315    401  1.6706  1.4905  1.8746        True                      
+headline_no_allocation headline (DL-42 rule)    16-34                 retired  24315      9  0.0326  0.0097  0.0618        True                      
+headline_no_allocation headline (DL-42 rule)    16-34                disabled  24315     34  0.1522  0.0953  0.2129        True                      
+headline_no_allocation headline (DL-42 rule)    16-34              other_nilf  24315    528  2.2527  2.0311  2.4843        True                      
+headline_no_allocation headline (DL-42 rule)    35-54     mfg_same_occupation  34433  31743 91.8785 91.4906 92.2256        True                      
+headline_no_allocation headline (DL-42 rule)    35-54    mfg_other_production  34433    733  2.2126  2.0202  2.4271        True                      
+headline_no_allocation headline (DL-42 rule)    35-54         mfg_maintenance  34433     34  0.0950  0.0616  0.1297        True                      
+headline_no_allocation headline (DL-42 rule)    35-54    mfg_other_occupation  34433    426  1.3030  1.1624  1.4505        True                      
+headline_no_allocation headline (DL-42 rule)    35-54 outside_mfg_maintenance  34433     15  0.0540  0.0286  0.0869        True                      
+headline_no_allocation headline (DL-42 rule)    35-54       outside_mfg_other  34433    536  1.6169  1.4716  1.7913        True                      
+headline_no_allocation headline (DL-42 rule)    35-54              unemployed  34433    418  1.2867  1.1422  1.4312        True                      
+headline_no_allocation headline (DL-42 rule)    35-54                 retired  34433     30  0.0822  0.0494  0.1185        True                      
+headline_no_allocation headline (DL-42 rule)    35-54                disabled  34433     76  0.2152  0.1634  0.2710        True                      
+headline_no_allocation headline (DL-42 rule)    35-54              other_nilf  34433    422  1.2561  1.1224  1.4007        True                      
+headline_no_allocation headline (DL-42 rule)      55+     mfg_same_occupation  22142  20286 91.3407 90.8716 91.8078        True                      
+headline_no_allocation headline (DL-42 rule)      55+    mfg_other_production  22142    386  1.7997  1.5768  2.0261        True                      
+headline_no_allocation headline (DL-42 rule)      55+         mfg_maintenance  22142     22  0.0949  0.0551  0.1408        True                      
+headline_no_allocation headline (DL-42 rule)      55+    mfg_other_occupation  22142    274  1.2904  1.1361  1.4633        True                      
+headline_no_allocation headline (DL-42 rule)      55+ outside_mfg_maintenance  22142      4  0.0171  0.0022  0.0370        True                      
+headline_no_allocation headline (DL-42 rule)      55+       outside_mfg_other  22142    256  1.3185  1.1475  1.5096        True                      
+headline_no_allocation headline (DL-42 rule)      55+              unemployed  22142    211  1.0002  0.8490  1.1331        True                      
+headline_no_allocation headline (DL-42 rule)      55+                 retired  22142    380  1.5727  1.3984  1.7587        True                      
+headline_no_allocation headline (DL-42 rule)      55+                disabled  22142     90  0.4273  0.3275  0.5328        True                      
+headline_no_allocation headline (DL-42 rule)      55+              other_nilf  22142    233  1.1386  0.9710  1.3193        True                      
+             all_pairs             all pairs      all     mfg_same_occupation  83923  74741 88.4369 88.1531 88.7106        True                      
+             all_pairs             all pairs      all    mfg_other_production  83923   1831  2.2912  2.1532  2.4286        True                      
+             all_pairs             all pairs      all         mfg_maintenance  83923     93  0.1078  0.0845  0.1333        True                      
+             all_pairs             all pairs      all    mfg_other_occupation  83923   1496  1.9146  1.8016  2.0262        True                      
+             all_pairs             all pairs      all outside_mfg_maintenance  83923     56  0.0732  0.0541  0.0955        True                      
+             all_pairs             all pairs      all       outside_mfg_other  83923   2483  3.2282  3.0910  3.3858        True                      
+             all_pairs             all pairs      all              unemployed  83923   1083  1.3513  1.2556  1.4442        True                      
+             all_pairs             all pairs      all                 retired  83923    468  0.4782  0.4294  0.5279        True                      
+             all_pairs             all pairs      all                disabled  83923    242  0.2944  0.2499  0.3336        True                      
+             all_pairs             all pairs      all              other_nilf  83923   1430  1.8243  1.7102  1.9366        True                      
+             all_pairs             all pairs    16-34     mfg_same_occupation  25420  22179 86.4502 85.9026 87.0016        True                      
+             all_pairs             all pairs    16-34    mfg_other_production  25420    613  2.5351  2.2848  2.8137        True                      
+             all_pairs             all pairs    16-34         mfg_maintenance  25420     28  0.1130  0.0699  0.1603        True                      
+             all_pairs             all pairs    16-34    mfg_other_occupation  25420    485  2.1117  1.8768  2.3353        True                      
+             all_pairs             all pairs    16-34 outside_mfg_maintenance  25420     19  0.0833  0.0480  0.1253        True                      
+             all_pairs             all pairs    16-34       outside_mfg_other  25420    979  4.1626  3.8658  4.4819        True                      
+             all_pairs             all pairs    16-34              unemployed  25420    425  1.6851  1.5047  1.8877        True                      
+             all_pairs             all pairs    16-34                 retired  25420     11  0.0412  0.0150  0.0724        True                      
+             all_pairs             all pairs    16-34                disabled  25420     39  0.1643  0.1077  0.2241        True                      
+             all_pairs             all pairs    16-34              other_nilf  25420    642  2.6535  2.4075  2.8894        True                      
+             all_pairs             all pairs    35-54     mfg_same_occupation  35599  32061 89.5125 89.0820 89.8915        True                      
+             all_pairs             all pairs    35-54    mfg_other_production  35599    790  2.3018  2.1117  2.5276        True                      
+             all_pairs             all pairs    35-54         mfg_maintenance  35599     40  0.1045  0.0684  0.1414        True                      
+             all_pairs             all pairs    35-54    mfg_other_occupation  35599    627  1.8577  1.6889  2.0379        True                      
+             all_pairs             all pairs    35-54 outside_mfg_maintenance  35599     26  0.0807  0.0486  0.1182        True                      
+             all_pairs             all pairs    35-54       outside_mfg_other  35599    975  2.9652  2.7542  3.2015        True                      
+             all_pairs             all pairs    35-54              unemployed  35599    440  1.3083  1.1617  1.4553        True                      
+             all_pairs             all pairs    35-54                 retired  35599     35  0.0944  0.0620  0.1311        True                      
+             all_pairs             all pairs    35-54                disabled  35599    100  0.2920  0.2236  0.3580        True                      
+             all_pairs             all pairs    35-54              other_nilf  35599    505  1.4829  1.3368  1.6479        True                      
+             all_pairs             all pairs      55+     mfg_same_occupation  22904  20501 89.1747 88.6700 89.6972        True                      
+             all_pairs             all pairs      55+    mfg_other_production  22904    428  1.9588  1.7289  2.1850        True                      
+             all_pairs             all pairs      55+         mfg_maintenance  22904     25  0.1065  0.0636  0.1541        True                      
+             all_pairs             all pairs      55+    mfg_other_occupation  22904    384  1.7567  1.5653  1.9531        True                      
+             all_pairs             all pairs      55+ outside_mfg_maintenance  22904     11  0.0473  0.0206  0.0811        True                      
+             all_pairs             all pairs      55+       outside_mfg_other  22904    529  2.4692  2.2195  2.7339        True                      
+             all_pairs             all pairs      55+              unemployed  22904    218  0.9938  0.8441  1.1242        True                      
+             all_pairs             all pairs      55+                 retired  22904    422  1.6928  1.5181  1.8871        True                      
+             all_pairs             all pairs      55+                disabled  22904    103  0.4663  0.3633  0.5771        True                      
+             all_pairs             all pairs      55+              other_nilf  22904    283  1.3339  1.1522  1.5170        True                      
+            i_reversal                 check      all     mfg_same_occupation  80890  74320 91.5425 91.2790 91.7901        True                      
+            i_reversal                 check      all    mfg_other_production  80890   1538  1.9858  1.8744  2.1025        True                      
+            i_reversal                 check      all         mfg_maintenance  80890     80  0.0970  0.0742  0.1210        True                      
+            i_reversal                 check      all    mfg_other_occupation  80890    992  1.2935  1.2018  1.3867        True                      
+            i_reversal                 check      all outside_mfg_maintenance  80890     28  0.0393  0.0239  0.0563        True                      
+            i_reversal                 check      all       outside_mfg_other  80890   1323  1.7534  1.6514  1.8724        True                      
+            i_reversal                 check      all              unemployed  80890    932  1.2068  1.1215  1.2956        True                      
+            i_reversal                 check      all                 retired  80890    397  0.4197  0.3716  0.4669        True                      
+            i_reversal                 check      all                disabled  80890    184  0.2308  0.1918  0.2693        True                      
+            i_reversal                 check      all              other_nilf  80890   1096  1.4311  1.3361  1.5405        True                      
+            i_reversal                 check    16-34     mfg_same_occupation  24315  21990 90.0463 89.5514 90.5058        True                      
+            i_reversal                 check    16-34    mfg_other_production  24315    502  2.1520  1.9326  2.3822        True                      
+            i_reversal                 check    16-34         mfg_maintenance  24315     24  0.1015  0.0589  0.1479        True                      
+            i_reversal                 check    16-34    mfg_other_occupation  24315    320  1.4112  1.2305  1.5935        True                      
+            i_reversal                 check    16-34 outside_mfg_maintenance  24315     10  0.0411  0.0154  0.0715        True                      
+            i_reversal                 check    16-34       outside_mfg_other  24315    559  2.3880  2.1727  2.6206        True                      
+            i_reversal                 check    16-34              unemployed  24315    365  1.5106  1.3380  1.6930        True                      
+            i_reversal                 check    16-34                 retired  24315      9  0.0326  0.0097  0.0618        True                      
+            i_reversal                 check    16-34                disabled  24315     33  0.1478  0.0927  0.2071        True                      
+            i_reversal                 check    16-34              other_nilf  24315    503  2.1690  1.9516  2.3897        True                      
+            i_reversal                 check    35-54     mfg_same_occupation  34433  31919 92.4313 92.0750 92.7487        True                      
+            i_reversal                 check    35-54    mfg_other_production  34433    685  2.0700  1.8922  2.2641        True                      
+            i_reversal                 check    35-54         mfg_maintenance  34433     34  0.0950  0.0616  0.1297        True                      
+            i_reversal                 check    35-54    mfg_other_occupation  34433    411  1.2424  1.1062  1.3853        True                      
+            i_reversal                 check    35-54 outside_mfg_maintenance  34433     14  0.0511  0.0256  0.0827        True                      
+            i_reversal                 check    35-54       outside_mfg_other  34433    515  1.5528  1.4066  1.7233        True                      
+            i_reversal                 check    35-54              unemployed  34433    375  1.1495  1.0172  1.2808        True                      
+            i_reversal                 check    35-54                 retired  34433     26  0.0712  0.0412  0.1037        True                      
+            i_reversal                 check    35-54                disabled  34433     68  0.1965  0.1500  0.2495        True                      
+            i_reversal                 check    35-54              other_nilf  34433    386  1.1402  1.0192  1.2814        True                      
+            i_reversal                 check      55+     mfg_same_occupation  22142  20411 91.9371 91.5089 92.3923        True                      
+            i_reversal                 check      55+    mfg_other_production  22142    351  1.6321  1.4297  1.8344        True                      
+            i_reversal                 check      55+         mfg_maintenance  22142     22  0.0949  0.0551  0.1408        True                      
+            i_reversal                 check      55+    mfg_other_occupation  22142    261  1.2308  1.0792  1.4013        True                      
+            i_reversal                 check      55+ outside_mfg_maintenance  22142      4  0.0171  0.0022  0.0370        True                      
+            i_reversal                 check      55+       outside_mfg_other  22142    249  1.2873  1.1118  1.4831        True                      
+            i_reversal                 check      55+              unemployed  22142    192  0.9181  0.7772  1.0535        True                      
+            i_reversal                 check      55+                 retired  22142    362  1.5011  1.3292  1.6853        True                      
+            i_reversal                 check      55+                disabled  22142     83  0.3944  0.3013  0.4959        True                      
+            i_reversal                 check      55+              other_nilf  22142    207  0.9870  0.8375  1.1456        True                      
+     ii_excl_2020_2021                 check      all     mfg_same_occupation  56223  51552 91.3193 90.9987 91.6049        True                      
+     ii_excl_2020_2021                 check      all    mfg_other_production  56223   1159  2.1483  1.9948  2.3103        True                      
+     ii_excl_2020_2021                 check      all         mfg_maintenance  56223     55  0.0962  0.0689  0.1257        True                      
+     ii_excl_2020_2021                 check      all    mfg_other_occupation  56223    736  1.3916  1.2754  1.5081        True                      
+     ii_excl_2020_2021                 check      all outside_mfg_maintenance  56223     26  0.0519  0.0320  0.0759        True                      
+     ii_excl_2020_2021                 check      all       outside_mfg_other  56223    963  1.8346  1.7052  1.9816        True                      
+     ii_excl_2020_2021                 check      all              unemployed  56223    527  1.0082  0.9137  1.1061        True                      
+     ii_excl_2020_2021                 check      all                 retired  56223    296  0.4499  0.3893  0.5077        True                      
+     ii_excl_2020_2021                 check      all                disabled  56223    140  0.2564  0.2101  0.3029        True                      
+     ii_excl_2020_2021                 check      all              other_nilf  56223    769  1.4437  1.3270  1.5700        True                      
+     ii_excl_2020_2021                 check    16-34     mfg_same_occupation  16957  15336 89.9484 89.3647 90.4842        True                      
+     ii_excl_2020_2021                 check    16-34    mfg_other_production  16957    361  2.2283  1.9618  2.5431        True                      
+     ii_excl_2020_2021                 check    16-34         mfg_maintenance  16957     20  0.1188  0.0647  0.1778        True                      
+     ii_excl_2020_2021                 check    16-34    mfg_other_occupation  16957    234  1.5019  1.2620  1.7306        True                      
+     ii_excl_2020_2021                 check    16-34 outside_mfg_maintenance  16957     10  0.0573  0.0212  0.0995        True                      
+     ii_excl_2020_2021                 check    16-34       outside_mfg_other  16957    404  2.5414  2.2616  2.8298        True                      
+     ii_excl_2020_2021                 check    16-34              unemployed  16957    213  1.2899  1.1099  1.4891        True                      
+     ii_excl_2020_2021                 check    16-34                 retired  16957      7  0.0354  0.0085  0.0734        True                      
+     ii_excl_2020_2021                 check    16-34                disabled  16957     24  0.1654  0.0946  0.2389        True                      
+     ii_excl_2020_2021                 check    16-34              other_nilf  16957    348  2.1132  1.8629  2.3679        True                      
+     ii_excl_2020_2021                 check    35-54     mfg_same_occupation  23709  21902 92.0983 91.6596 92.5160        True                      
+     ii_excl_2020_2021                 check    35-54    mfg_other_production  23709    517  2.2807  2.0578  2.5308        True                      
+     ii_excl_2020_2021                 check    35-54         mfg_maintenance  23709     20  0.0796  0.0421  0.1206        True                      
+     ii_excl_2020_2021                 check    35-54    mfg_other_occupation  23709    302  1.3409  1.1545  1.5291        True                      
+     ii_excl_2020_2021                 check    35-54 outside_mfg_maintenance  23709     13  0.0668  0.0313  0.1070        True                      
+     ii_excl_2020_2021                 check    35-54       outside_mfg_other  23709    385  1.6422  1.4460  1.8464        True                      
+     ii_excl_2020_2021                 check    35-54              unemployed  23709    216  0.9813  0.8353  1.1345        True                      
+     ii_excl_2020_2021                 check    35-54                 retired  23709     20  0.0779  0.0411  0.1169        True                      
+     ii_excl_2020_2021                 check    35-54                disabled  23709     51  0.2093  0.1473  0.2732        True                      
+     ii_excl_2020_2021                 check    35-54              other_nilf  23709    283  1.2230  1.0547  1.3861        True                      
+     ii_excl_2020_2021                 check      55+     mfg_same_occupation  15557  14314 91.7375 91.1847 92.2325        True                      
+     ii_excl_2020_2021                 check      55+    mfg_other_production  15557    281  1.8283  1.5420  2.0987        True                      
+     ii_excl_2020_2021                 check      55+         mfg_maintenance  15557     15  0.0954  0.0485  0.1533        True                      
+     ii_excl_2020_2021                 check      55+    mfg_other_occupation  15557    200  1.3379  1.1534  1.5563        True                      
+     ii_excl_2020_2021                 check      55+ outside_mfg_maintenance  15557      3  0.0203  0.0000  0.0464        True                      
+     ii_excl_2020_2021                 check      55+       outside_mfg_other  15557    174  1.2708  1.0661  1.4968        True                      
+     ii_excl_2020_2021                 check      55+              unemployed  15557     98  0.7006  0.5487  0.8503        True                      
+     ii_excl_2020_2021                 check      55+                 retired  15557    269  1.5866  1.3794  1.7897        True                      
+     ii_excl_2020_2021                 check      55+                disabled  15557     65  0.4487  0.3291  0.5752        True                      
+     ii_excl_2020_2021                 check      55+              other_nilf  15557    138  0.9739  0.7996  1.1636        True                      
+                 check                  role age_band            category  n_den  n_num    pct     lo     hi  reportable not_reportable_reason direction
+headline_no_allocation headline (DL-42 rule)      all          production   8267     92 1.1280 0.8682 1.3878        True                         outflow
+headline_no_allocation headline (DL-42 rule)      all      other_employed   8267    184 2.3100 1.9414 2.6985        True                         outflow
+headline_no_allocation headline (DL-42 rule)      all          unemployed   8267     62 0.7474 0.5445 0.9665        True                         outflow
+headline_no_allocation headline (DL-42 rule)      all             retired   8267     43 0.4952 0.3265 0.6805        True                         outflow
+headline_no_allocation headline (DL-42 rule)      all            disabled   8267     17 0.2059 0.1030 0.3396        True                         outflow
+headline_no_allocation headline (DL-42 rule)      all          other_nilf   8267     55 0.7093 0.5235 0.9105        True                         outflow
+headline_no_allocation headline (DL-42 rule)      all          production   8241     88 1.0661 0.8324 1.3266        True                          inflow
+headline_no_allocation headline (DL-42 rule)      all      other_employed   8241    186 2.3130 1.9361 2.6593        True                          inflow
+headline_no_allocation headline (DL-42 rule)      all          unemployed   8241     61 0.7155 0.5203 0.9454        True                          inflow
+headline_no_allocation headline (DL-42 rule)      all not_in_labour_force   8241     81 1.0178 0.7840 1.2807        True                          inflow
+headline_no_allocation headline (DL-42 rule)    16-34          production   2059     26 1.3384 0.7774 1.9251        True                         outflow
+headline_no_allocation headline (DL-42 rule)    16-34      other_employed   2059     54 2.7606 1.9033 3.5897        True                         outflow
+headline_no_allocation headline (DL-42 rule)    16-34          unemployed   2059     22 1.0817 0.6282 1.5643        True                         outflow
+headline_no_allocation headline (DL-42 rule)    16-34             retired   2059      1 0.0505 0.0000 0.1591        True                         outflow
+headline_no_allocation headline (DL-42 rule)    16-34            disabled   2059      1 0.0430 0.0000 0.1609        True                         outflow
+headline_no_allocation headline (DL-42 rule)    16-34          other_nilf   2059     24 1.1749 0.7257 1.7322        True                         outflow
+headline_no_allocation headline (DL-42 rule)    16-34          production   2053     27 1.4022 0.8410 2.0079        True                          inflow
+headline_no_allocation headline (DL-42 rule)    16-34      other_employed   2053     54 2.6979 1.9195 3.5567        True                          inflow
+headline_no_allocation headline (DL-42 rule)    16-34          unemployed   2053     21 1.1064 0.6238 1.7138        True                          inflow
+headline_no_allocation headline (DL-42 rule)    16-34 not_in_labour_force   2053     24 1.2488 0.7029 1.8389        True                          inflow
+headline_no_allocation headline (DL-42 rule)    35-54          production   3646     42 1.1216 0.7587 1.5233        True                         outflow
+headline_no_allocation headline (DL-42 rule)    35-54      other_employed   3646     84 2.3407 1.7979 2.9647        True                         outflow
+headline_no_allocation headline (DL-42 rule)    35-54          unemployed   3646     19 0.5061 0.2665 0.8047        True                         outflow
+headline_no_allocation headline (DL-42 rule)    35-54             retired   3646      3 0.0851 0.0000 0.2137        True                         outflow
+headline_no_allocation headline (DL-42 rule)    35-54            disabled   3646      7 0.2040 0.0526 0.3986        True                         outflow
+headline_no_allocation headline (DL-42 rule)    35-54          other_nilf   3646     23 0.7396 0.4491 1.0372        True                         outflow
+headline_no_allocation headline (DL-42 rule)    35-54          production   3633     38 1.0143 0.6671 1.3816        True                          inflow
+headline_no_allocation headline (DL-42 rule)    35-54      other_employed   3633     78 2.2386 1.7037 2.7926        True                          inflow
+headline_no_allocation headline (DL-42 rule)    35-54          unemployed   3633     31 0.7349 0.4648 1.0403        True                          inflow
+headline_no_allocation headline (DL-42 rule)    35-54 not_in_labour_force   3633     21 0.6645 0.3672 1.0331        True                          inflow
+headline_no_allocation headline (DL-42 rule)      55+          production   2562     24 0.9531 0.5406 1.4385        True                         outflow
+headline_no_allocation headline (DL-42 rule)      55+      other_employed   2562     46 1.8690 1.3463 2.5350        True                         outflow
+headline_no_allocation headline (DL-42 rule)      55+          unemployed   2562     21 0.8176 0.4561 1.1935        True                         outflow
+headline_no_allocation headline (DL-42 rule)      55+             retired   2562     39 1.5024 0.9804 2.1068        True                         outflow
+headline_no_allocation headline (DL-42 rule)      55+            disabled   2562      9 0.3516 0.1194 0.6406        True                         outflow
+headline_no_allocation headline (DL-42 rule)      55+          other_nilf   2562      8 0.2557 0.0853 0.4667        True                         outflow
+headline_no_allocation headline (DL-42 rule)      55+          production   2555     23 0.8493 0.4932 1.2722        True                          inflow
+headline_no_allocation headline (DL-42 rule)      55+      other_employed   2555     54 2.0875 1.4620 2.6756        True                          inflow
+headline_no_allocation headline (DL-42 rule)      55+          unemployed   2555      9 0.3435 0.1162 0.6312        True                          inflow
+headline_no_allocation headline (DL-42 rule)      55+ not_in_labour_force   2555     36 1.3481 0.9053 1.8600        True                          inflow
+             all_pairs             all pairs      all          production   8524    120 1.4579 1.1672 1.7647        True                         outflow
+             all_pairs             all pairs      all      other_employed   8524    308 3.9583 3.4955 4.5047        True                         outflow
+             all_pairs             all pairs      all          unemployed   8524     63 0.7427 0.5527 0.9583        True                         outflow
+             all_pairs             all pairs      all             retired   8524     48 0.5448 0.3677 0.7395        True                         outflow
+             all_pairs             all pairs      all            disabled   8524     17 0.1989 0.0995 0.3269        True                         outflow
+             all_pairs             all pairs      all          other_nilf   8524     71 0.9130 0.6907 1.1370        True                         outflow
+             all_pairs             all pairs      all          production   8518     99 1.1595 0.9118 1.4221        True                          inflow
+             all_pairs             all pairs      all      other_employed   8518    341 4.1045 3.6123 4.5885        True                          inflow
+             all_pairs             all pairs      all          unemployed   8518     67 0.7831 0.5749 1.0145        True                          inflow
+             all_pairs             all pairs      all not_in_labour_force   8518    106 1.2957 1.0228 1.5893        True                          inflow
+             all_pairs             all pairs    16-34          production   2129     34 1.7629 1.0953 2.4371        True                         outflow
+             all_pairs             all pairs    16-34      other_employed   2129     87 4.7034 3.5712 5.7716        True                         outflow
+             all_pairs             all pairs    16-34          unemployed   2129     22 1.0406 0.6030 1.5055        True                         outflow
+             all_pairs             all pairs    16-34             retired   2129      1 0.0486 0.0000 0.1524        True                         outflow
+             all_pairs             all pairs    16-34            disabled   2129      1 0.0414 0.0000 0.1551        True                         outflow
+             all_pairs             all pairs    16-34          other_nilf   2129     33 1.5574 1.0093 2.1868        True                         outflow
+             all_pairs             all pairs    16-34          production   2126     29 1.4799 0.9188 2.1042        True                          inflow
+             all_pairs             all pairs    16-34      other_employed   2126     95 4.8087 3.7341 5.8930        True                          inflow
+             all_pairs             all pairs    16-34          unemployed   2126     24 1.2144 0.7048 1.8559        True                          inflow
+             all_pairs             all pairs    16-34 not_in_labour_force   2126     32 1.5426 0.9561 2.2601        True                          inflow
+             all_pairs             all pairs    35-54          production   3768     56 1.4511 1.0489 1.9151        True                         outflow
+             all_pairs             all pairs    35-54      other_employed   3768    142 4.0461 3.3261 4.8380        True                         outflow
+             all_pairs             all pairs    35-54          unemployed   3768     20 0.5338 0.2915 0.8242        True                         outflow
+             all_pairs             all pairs    35-54             retired   3768      4 0.1300 0.0071 0.3069        True                         outflow
+             all_pairs             all pairs    35-54            disabled   3768      7 0.1965 0.0504 0.3848        True                         outflow
+             all_pairs             all pairs    35-54          other_nilf   3768     28 0.9123 0.5723 1.2665        True                         outflow
+             all_pairs             all pairs    35-54          production   3767     44 1.1055 0.7360 1.4898        True                          inflow
+             all_pairs             all pairs    35-54      other_employed   3767    155 4.2057 3.4431 4.9500        True                          inflow
+             all_pairs             all pairs    35-54          unemployed   3767     34 0.8270 0.5429 1.1703        True                          inflow
+             all_pairs             all pairs    35-54 not_in_labour_force   3767     31 0.9328 0.5764 1.3118        True                          inflow
+             all_pairs             all pairs      55+          production   2627     30 1.1976 0.7382 1.7104        True                         outflow
+             all_pairs             all pairs      55+      other_employed   2627     79 3.1637 2.4323 4.0245        True                         outflow
+             all_pairs             all pairs      55+          unemployed   2627     21 0.7962 0.4442 1.1586        True                         outflow
+             all_pairs             all pairs      55+             retired   2627     43 1.6162 1.0884 2.2452        True                         outflow
+             all_pairs             all pairs      55+            disabled   2627      9 0.3424 0.1167 0.6244        True                         outflow
+             all_pairs             all pairs      55+          other_nilf   2627     10 0.3424 0.1338 0.6050        True                         outflow
+             all_pairs             all pairs      55+          production   2625     26 0.9579 0.5790 1.4022        True                          inflow
+             all_pairs             all pairs      55+      other_employed   2625     91 3.3266 2.5655 4.1345        True                          inflow
+             all_pairs             all pairs      55+          unemployed   2625      9 0.3343 0.1128 0.6156        True                          inflow
+             all_pairs             all pairs      55+ not_in_labour_force   2625     43 1.6298 1.1466 2.1917        True                          inflow
+            i_reversal                 check      all          production   8267     89 1.0973 0.8488 1.3630        True                         outflow
+            i_reversal                 check      all      other_employed   8267    178 2.2543 1.8978 2.6478        True                         outflow
+            i_reversal                 check      all          unemployed   8267     57 0.6868 0.4896 0.8959        True                         outflow
+            i_reversal                 check      all             retired   8267     41 0.4744 0.3115 0.6568        True                         outflow
+            i_reversal                 check      all            disabled   8267     14 0.1630 0.0762 0.2687        True                         outflow
+            i_reversal                 check      all          other_nilf   8267     47 0.6151 0.4449 0.8075        True                         outflow
+            i_reversal                 check      all          production   8215     85 1.0402 0.8059 1.2979        True                          inflow
+            i_reversal                 check      all      other_employed   8215    177 2.1910 1.8243 2.5322        True                          inflow
+            i_reversal                 check      all          unemployed   8215     60 0.7015 0.5100 0.9258        True                          inflow
+            i_reversal                 check      all not_in_labour_force   8215     68 0.9009 0.6787 1.1500        True                          inflow
+            i_reversal                 check    16-34          production   2059     26 1.3384 0.7774 1.9251        True                         outflow
+            i_reversal                 check    16-34      other_employed   2059     53 2.7332 1.9015 3.5615        True                         outflow
+            i_reversal                 check    16-34          unemployed   2059     21 1.0233 0.5885 1.4971        True                         outflow
+            i_reversal                 check    16-34             retired   2059      1 0.0505 0.0000 0.1591        True                         outflow
+            i_reversal                 check    16-34            disabled   2059      0 0.0000 0.0000 0.0000       False              no event   outflow
+            i_reversal                 check    16-34          other_nilf   2059     21 1.0455 0.6158 1.5684        True                         outflow
+            i_reversal                 check    16-34          production   2043     25 1.3210 0.7705 1.8777        True                          inflow
+            i_reversal                 check    16-34      other_employed   2043     51 2.4819 1.7183 3.2988        True                          inflow
+            i_reversal                 check    16-34          unemployed   2043     20 1.0499 0.5580 1.6583        True                          inflow
+            i_reversal                 check    16-34 not_in_labour_force   2043     20 1.0975 0.5923 1.6494        True                          inflow
+            i_reversal                 check    35-54          production   3646     40 1.0720 0.7124 1.4571        True                         outflow
+            i_reversal                 check    35-54      other_employed   3646     81 2.2595 1.7137 2.8579        True                         outflow
+            i_reversal                 check    35-54          unemployed   3646     16 0.4448 0.2248 0.7200        True                         outflow
+            i_reversal                 check    35-54             retired   3646      3 0.0851 0.0000 0.2137        True                         outflow
+            i_reversal                 check    35-54            disabled   3646      5 0.1327 0.0228 0.2759        True                         outflow
+            i_reversal                 check    35-54          other_nilf   3646     20 0.6579 0.3750 0.9627        True                         outflow
+            i_reversal                 check    35-54          production   3626     37 1.0026 0.6637 1.3711        True                          inflow
+            i_reversal                 check    35-54      other_employed   3626     74 2.1287 1.6191 2.6916        True                          inflow
+            i_reversal                 check    35-54          unemployed   3626     31 0.7362 0.4655 1.0421        True                          inflow
+            i_reversal                 check    35-54 not_in_labour_force   3626     19 0.6106 0.3239 0.9814        True                          inflow
+            i_reversal                 check      55+          production   2562     23 0.9239 0.5144 1.4190        True                         outflow
+            i_reversal                 check      55+      other_employed   2562     44 1.8267 1.3029 2.4957        True                         outflow
+            i_reversal                 check      55+          unemployed   2562     20 0.7562 0.4137 1.1125        True                         outflow
+            i_reversal                 check      55+             retired   2562     37 1.4319 0.9037 2.0222        True                         outflow
+            i_reversal                 check      55+            disabled   2562      9 0.3516 0.1194 0.6406        True                         outflow
+            i_reversal                 check      55+          other_nilf   2562      6 0.1731 0.0432 0.3609        True                         outflow
+            i_reversal                 check      55+          production   2546     23 0.8514 0.4948 1.2760        True                          inflow
+            i_reversal                 check      55+      other_employed   2546     52 2.0307 1.4029 2.6237        True                          inflow
+            i_reversal                 check      55+          unemployed   2546      9 0.3443 0.1166 0.6326        True                          inflow
+            i_reversal                 check      55+ not_in_labour_force   2546     29 1.1671 0.7605 1.6564        True                          inflow
+     ii_excl_2020_2021                 check      all          production   5764     66 1.2232 0.9012 1.5436        True                         outflow
+     ii_excl_2020_2021                 check      all      other_employed   5764    139 2.5069 2.0750 3.0226        True                         outflow
+     ii_excl_2020_2021                 check      all          unemployed   5764     32 0.5368 0.3437 0.7459        True                         outflow
+     ii_excl_2020_2021                 check      all             retired   5764     35 0.5879 0.3676 0.8369        True                         outflow
+     ii_excl_2020_2021                 check      all            disabled   5764     13 0.2421 0.1089 0.4021        True                         outflow
+     ii_excl_2020_2021                 check      all          other_nilf   5764     38 0.6774 0.4632 0.9285        True                         outflow
+     ii_excl_2020_2021                 check      all          production   5728     58 1.0131 0.7306 1.3224        True                          inflow
+     ii_excl_2020_2021                 check      all      other_employed   5728    136 2.4583 1.9820 2.9141        True                          inflow
+     ii_excl_2020_2021                 check      all          unemployed   5728     30 0.4220 0.2646 0.6081        True                          inflow
+     ii_excl_2020_2021                 check      all not_in_labour_force   5728     63 1.1134 0.8061 1.4488        True                          inflow
+     ii_excl_2020_2021                 check    16-34          production   1500     20 1.4315 0.7558 2.1712        True                         outflow
+     ii_excl_2020_2021                 check    16-34      other_employed   1500     41 2.8773 1.8963 3.9266        True                         outflow
+     ii_excl_2020_2021                 check    16-34          unemployed   1500     13 0.8078 0.3913 1.3352        True                         outflow
+     ii_excl_2020_2021                 check    16-34             retired   1500      1 0.0684 0.0000 0.2166        True                         outflow
+     ii_excl_2020_2021                 check    16-34            disabled   1500      1 0.0583 0.0000 0.2164        True                         outflow
+     ii_excl_2020_2021                 check    16-34          other_nilf   1500     18 1.1037 0.5914 1.7118        True                         outflow
+     ii_excl_2020_2021                 check    16-34          production   1493     21 1.5037 0.8398 2.2643        True                          inflow
+     ii_excl_2020_2021                 check    16-34      other_employed   1493     39 2.8660 1.8972 3.9062        True                          inflow
+     ii_excl_2020_2021                 check    16-34          unemployed   1493     11 0.6156 0.2306 1.0881        True                          inflow
+     ii_excl_2020_2021                 check    16-34 not_in_labour_force   1493     21 1.4413 0.7446 2.2016        True                          inflow
+     ii_excl_2020_2021                 check    35-54          production   2509     28 1.1356 0.6905 1.6292        True                         outflow
+     ii_excl_2020_2021                 check    35-54      other_employed   2509     62 2.5253 1.8568 3.2777        True                         outflow
+     ii_excl_2020_2021                 check    35-54          unemployed   2509      8 0.3237 0.1000 0.6271        True                         outflow
+     ii_excl_2020_2021                 check    35-54             retired   2509      2 0.1084 0.0000 0.2885        True                         outflow
+     ii_excl_2020_2021                 check    35-54            disabled   2509      5 0.2098 0.0322 0.4474        True                         outflow
+     ii_excl_2020_2021                 check    35-54          other_nilf   2509     17 0.7842 0.4376 1.1895        True                         outflow
+     ii_excl_2020_2021                 check    35-54          production   2498     21 0.7996 0.4302 1.1951        True                          inflow
+     ii_excl_2020_2021                 check    35-54      other_employed   2498     60 2.4955 1.8194 3.2373        True                          inflow
+     ii_excl_2020_2021                 check    35-54          unemployed   2498     15 0.4764 0.2261 0.7931        True                          inflow
+     ii_excl_2020_2021                 check    35-54 not_in_labour_force   2498     17 0.7880 0.4043 1.2751        True                          inflow
+     ii_excl_2020_2021                 check      55+          production   1755     18 1.1667 0.6143 1.8359        True                         outflow
+     ii_excl_2020_2021                 check      55+      other_employed   1755     36 2.1433 1.4242 2.9872        True                         outflow
+     ii_excl_2020_2021                 check      55+          unemployed   1755     11 0.6129 0.2584 0.9920        True                         outflow
+     ii_excl_2020_2021                 check      55+             retired   1755     32 1.7826 1.1040 2.6008        True                         outflow
+     ii_excl_2020_2021                 check      55+            disabled   1755      7 0.4574 0.1359 0.8716        True                         outflow
+     ii_excl_2020_2021                 check      55+          other_nilf   1755      3 0.1295 0.0000 0.3241        True                         outflow
+     ii_excl_2020_2021                 check      55+          production   1737     16 0.8895 0.4615 1.4209        True                          inflow
+     ii_excl_2020_2021                 check      55+      other_employed   1737     37 2.0281 1.3496 2.7700        True                          inflow
+     ii_excl_2020_2021                 check      55+          unemployed   1737      4 0.1615 0.0041 0.4213        True                          inflow
+     ii_excl_2020_2021                 check      55+ not_in_labour_force   1737     25 1.3102 0.7841 1.9309        True                          inflow
+                 check                  role                                          ratio  value     lo     hi  weighted_numerator  weighted_denominator  events_numerator  events_denominator  share_draws_gt_1  reportable
+headline_no_allocation headline (DL-42 rule) inflow from production / outflow to retirement 2.1441 1.3977 3.4369         278697.2770           129980.5930                88                  43             1.000        True
+headline_no_allocation headline (DL-42 rule)                       all inflow / all outflow 0.9100 0.8024 1.0345        1336497.4541          1468733.9013               416                 453             0.059        True
+             all_pairs             all pairs inflow from production / outflow to retirement 2.1189 1.4192 3.2663         313591.2610           147998.5707                99                  48             1.000        True
+             all_pairs             all pairs                       all inflow / all outflow 0.9353 0.8467 1.0372        1985876.5490          2123292.4134               613                 627             0.101        True
+            i_reversal                 check inflow from production / outflow to retirement 2.1776 1.4202 3.5128         271131.8777           124507.4232                85                  41             1.000        True
+            i_reversal                 check                       all inflow / all outflow 0.9073 0.7907 1.0367        1259912.3108          1388687.2140               390                 426             0.068        True
+     ii_excl_2020_2021                 check inflow from production / outflow to retirement 1.7097 1.0302 3.0102         190214.3357           111258.2197                58                  35             0.981        True
+     ii_excl_2020_2021                 check                       all inflow / all outflow 0.8603 0.7335 0.9896         940085.8460          1092781.3647               287                 323             0.021        True
+-> exit 0 (78.1 s)
+
+==============================================================================
+  FIGURES
+==============================================================================
+wrote figures/fig1_observed_trend.png
+wrote figures/fig2_projection_track_record.png
+wrote figures/fig3_automation_shift.png
+wrote figures/fig4_maintenance_mix.png
+wrote figures/fig5_cps_aging_flows.png
+wrote figures/fig6_floor_bench.png
+wrote figures/figS1_adjustment_by_job_zone.png
+-> exit 0 (5.3 s)
+
+==============================================================================
+  OUTPUT AUDIT — cross-path checks of every derived output (E1–E17)
+==============================================================================
+ id                                                                                                                                                                                                       check status                                                                                                                                                                                                                                                                                                                                                                                                                      detail
+ E1                                                                                                 Analysis log: copied DL entries are the shared set, unchanged since the split; AL ids contiguous and unique   PASS                                                                                                                                                                                                                                                              DL rows [14, 22, 23, 26, 28, 29, 30, 31, 32, 33, 34, 36, 37, 38, 39, 40, 41, 42, 44]; SHA-256 of the DL rows equals the split copy: True; AL-1 … AL-1 (1 rows)
+ E2                                                                                                                                                                Figures are newer than the outputs they draw   PASS                                                                                                                                                                                                                                                                                                                                                                                                7 figure/input pairs checked
+ E3                                                                                                                                  CES parsed; 2025 annual average equals the NEM 2025 industry total (DL-26)   PASS                                                                                                                                                                                           SeriesReport-20261019072345_501ecf.xlsx: 128 months 2016-01–2026-08, consecutive=True, not seasonally adjusted=True; annual averages re-derived=True; 2025 CES average 524.69k vs NEM 2025 total 524.7k; SHA-256 in MANIFEST=True
+ E4                                                                                                                                                         NEM 336300 parsed and internally consistent (DL-23)   PASS                                                                                                                                                               294 rows; Σ major groups − total = 0.1k (rounding); 49-9040 parts − group = 0.00k; max |2035 − 2025 − change| = 0.10k; max |recomputed % − published %| (≥5k jobs) = 0.49 pts; frame codes missing: none; SHA-256 in MANIFEST=True; output equals source=True
+ E5                                                                                                                     NEM 2025 staffing pattern = OEWS May 2025 inside 3363; totals differ by a common factor   PASS 181 matched occupations; share correlation 0.99989; max |share difference| 0.050 pts (NEM publishes shares to one decimal, so differences below 0.1 are within one rounding unit); NEM/OEWS total 0.9735; occupations with ≥ 5,000 jobs: level ratio 0.968–0.980. Levels come from different control totals (NEM: CES-based industry employment; OEWS: its own survey estimate); shares and percent changes are unaffected.
+ E6                                 Projection track record: archive totals (raw text / openpyxl) and CES annual averages (openpyxl) re-derived; occupation metrics recomputed from the comparison file (DL-38)   PASS                                                                                                                                                                                                                                                                       2008-18 -26.1% wrong; 2010-20 -25.5% wrong; 2012-22 -8.0% right; 2014-24 -6.7% wrong; occupations compared 144, direction right 30.6%, Spearman 0.190
+ E7                                                                                                                         Industry output: Table 2.11 = Table 2.8 = NEM totals; ranks; output per job (DL-29)   PASS                                                                                          336300 output 246.7 → 186.0 bn (Table 2.8 match True); jobs 524.7 → 451.5k (NEM match True); output per job -12.4%; rank: largest employment declines 4, most rapid output decline 1, largest output decline 1; output per job falls in 4 of 125 industries with output, 336300 rank 1 (re-derived True); SHA-256 in MANIFEST=True
+ E8                                                                                                                                                       BLS Table 1.12 factors match the raw workbook (DL-14)   PASS                                                                                                                                                                                                                                                                                                           20 occupations checked; all match; 336300 = 'Motor vehicle parts manufacturing', TE1000 = 'Total, all industries'
+ E9                                                                                               Two-stage NEM reading: baseline = occupations without a BLS factor; adjustments and automation counts (DL-28)   PASS                                                                                                                                                   baseline -12.9% = mode of 181 line items (95 at baseline); at baseline ⇔ no Table 1.12 row for 336300 or all industries: True (95 + 86 of 181); adjustments re-derived=True; automation factors: 242 rows, 112 occupations: 105 down, 7 up (matches mix_summary.md: True)
+E10                                                                                      Adjusted NEM 336300 line items citing automation re-derived from raw Table 1.12 (openpyxl) and the raw NEM CSV (DL-39)   PASS                                                                                                                                                                                                                                                                                                      86 of 181 line items adjusted; 42 cite robots or automation for 336300 or all industries; jobs 91.3k of 183.2k (49.8%)
+E11                                                                                                        BLS adjustment by Job Zone re-derived from the raw NEM CSV, crosswalk workbook and Job Zones (DL-34)   PASS                                                                                                                                                                                                                                       177 of 181 line items with a Job Zone; baseline -12.9%; Spearman rho 0.420; zone 2: n 76, mean -5.81%; zone 3: n 37, mean -2.60%; zone 4: n 55, mean +0.40%; zone 5: n 9, mean +1.99%
+E12                                                                                                                                          OEWS history re-read from raw zips; 2025 equals the ingest (DL-29)   PASS                                                                                                                                                                                                                                                                            2021: employment True, mean wage True; 2025: employment True, mean wage True; 2025 = oews_3363 ingest: True; 2021–2024 SHA-256 in MANIFEST: True
+E13                                                                                                                                                      Skill shift re-derived from the raw O*NET CSVs (DL-30)   PASS                                                                                                                                                                                                                                                           49-9041 vs 49-9043: 68 elements, differences equal=True, z equal=True, z > 1.96: 17, z < −1.96: 1; industrial-control counts re-derived with the csv module: True
+E14                                                                                                               Multiple comparisons (BH at fdr_q), endpoint z and floor-map rule variants re-derived (DL-32)   PASS       skill shift 49-9041 vs 49-9043: BH re-derived=True, higher 14, lower 1 of 65; premium over 49-9043 re-derived from the yearly file: z 2021→25 -5.1, 2022→25 -0.2 (match True); floor map: no-close counts re-derived from the pairs file {'base': 11, 'stricter': 17, 'looser': 9, 'lateral': 4} (match True); bootstrap pairs = eligible pairs with the point-estimate P=True; bootstrap no-close median 11 [10, 12]
+E15 CPS age profile and flows (DL-44): A1 counts and weighted 55+ shares, A2 and A3 counts re-derived from the raw files with string slicing and dict-based linkers; A2 agrees with the employed-records linker   PASS                                                                                                                         A1 55+: maintenance 3865/12843 (28.58%), production 34151/128087; A2 counts re-derived; employed-at-t pairs 80,700 / moves 149 = employed-records linker 80,774 / 149 minus 74 / 0 pairs with a person under 16: True; A3 counts re-derived (headline: in from production 88, out to retirement 43)
+E16                                                                                                                        Floor succession map: D, P re-derived from raw O*NET; eligibility and counts (DL-31)   PASS                                                                                                                                                   33 positions, 1056 pairs; targets 49-9041 and 51-1011 re-derived from the raw CSVs: max |diff| 1.4e-14; eligibility re-derived=True; close counts match=True; no close internal successor: 11 positions, 200,180 jobs; unrestricted nearest source earns more in 31 of 33
+E17                                                                                                                                               Cross-part link columns re-derived from the pair file (DL-33)   PASS                                                                                                                                     close-source counts and maintenance counts match=True; Σ as-source = Σ close sources=True; SOC-51 share of each close pool matches=True; CNC tool operators close source for 13 positions (bootstrap 11–13), 5 of 5 maintenance targets; production share of the 49-9041 close pool 66%
+-> exit 0 (152.0 s)
+
+==============================================================================
+  PIPELINE COMPLETED
+==============================================================================
