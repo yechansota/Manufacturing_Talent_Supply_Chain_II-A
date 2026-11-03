@@ -1,52 +1,53 @@
 # Manufacturing Talent Supply Chain II-A
-## Where Each Floor Job's Successors Come From — Job-Mix Change, Ageing and Worker Flows, and a Succession Map for Every Floor Job in Auto Parts Manufacturing (NAICS 3363)
+## Where Each Floor Job's Successors Come From — job-mix change, ageing and worker flows, and a succession map for every floor job in auto parts manufacturing (NAICS 3363)
 
 <p align="center">
   <strong>How is the job mix on the auto-parts floor changing, who leaves first, and where can each floor job find its successors?</strong><br>
   <em>CES · OEWS May 2014, 2021–2025 · BLS Employment Projections 2025–35 and archived projections 2008–18 to 2014–24 · O*NET 31.0 · CPS 2020–2026 · exploratory and descriptive</em>
 </p>
 
-
 ---
 
-## 1. Motivation
+## 1. Research Background and Motivation
 
 This project began with the manufacturing workforce-ageing case of the 2023 Purdue HR Case Competition and continues the
-earlier repository [*Manufacturing Talent Supply Chain at Risk (2010–2024)*](https://github.com/yechansota/Mfg_Talent_Supply_Chain.2010-2024.).
+earlier repository [*Manufacturing Talent Supply Chain at Risk (2010–2024)*].
 Part II has two repositories.
 
 | Repository | Question | Design |
 |---|---|---|
 | **II-A (this repository)** | How is the floor job mix changing, who leaves first and where do production workers go (Part 1); where do each floor job's successors come from (Part 2) | exploratory, descriptive |
-| [II-B: From the Production Line to Maintenance] | The one move that Parts 1 and 2 point to, production → equipment maintenance, tested in depth | pre-registered |
+| [II-B: From the Production Line to Maintenance]| The one move that Parts 1 and 2 point to, production → equipment maintenance, tested in depth | pre-registered |
 
-**Who the evidence is for.** Practitioners who design succession plans, redeployment and skill programmes on a floor
-whose job mix is changing, and the managers who approve them. They need three things: which jobs have actually grown and
-shrunk, who leaves first and by when a successor must be ready, and where the next person for each job can come from.
-This repository shows these with public data.
+### 1.1 A change of lens: replacement need and lead time, not labour shortage
+This study does not read workforce ageing through the usual frame of a labour shortage. It reframes ageing as each job's
+**replacement need** and the **lead time** needed to prepare successors. Demographic change has not historically mapped
+consistently onto changes in labour-market conditions, and projections of future skill demand have been judged not
+reliable enough to guide skill-development policy (Freeman, 2006). Ageing is therefore not used here as evidence of an
+absolute shortage. The analysis asks which jobs face replacement need first because of their age structure (3.4) and
+where their successors can come from (3.5); how long successors take to train is measured in
 
-**Ageing is read as replacement need and lead time, not as "shortage".** Demographic change has not historically mapped
-consistently onto labour-market conditions, and projections of future skill demand have been judged not reliable enough
-to guide skill-development policy (Freeman, 2006). This repository therefore does not use ageing as evidence of a labour
-shortage. It reads ageing as which jobs face replacement need first because of their age structure, and how long it takes
-to prepare a successor (3.4).
+### 1.2 Scope: auto parts manufacturing (NAICS 3363), an industry projected to shrink inside a growing sector
+For depth, the study focuses on U.S. motor vehicle parts manufacturing (NAICS 3363). In the BLS 2025–35 Employment
+Projections, manufacturing as a whole grows 0.6% while auto parts loses 13.9% of its jobs. An industry with a projected
+decline of this size is where the central question is sharpest: how can a projected loss of jobs be turned into
+redeployment and skill transfer rather than lost skill? Ageing and worker flows cannot be followed for NAICS 3363 alone in
+the Current Population Survey (CPS), so that part of the analysis uses manufacturing as a whole as a complementary layer.
 
-**Scope.** Auto parts manufacturing (NAICS 3363) is the depth case. In the BLS 2025–35 projections its jobs fall 13.9%
-while manufacturing as a whole grows 0.6%, so the question "how should a projected decline be used for redeployment" is
-sharpest here. Ageing and worker flows use the CPS for manufacturing as a whole, because NAICS 3363 cannot be isolated in
-the CPS.
-
-> **Problem statement.** The earlier repository concluded that a lack of binding mentoring cannot be shown with the
-> industry-level data it used and that occupation-level (SOC) data are needed. The labour economics literature makes the
-> same point: shortages are defined and measured by occupation (Barnow, Trutko & Schede Piatak, 2013), evidence of an
-> economy-wide U.S. skill shortage is weak (Cappelli, 2015), and hiring difficulty in manufacturing is concentrated in some
-> plants and specific skill demands rather than across the sector (Weaver & Osterman, 2017). II-A is that occupation-level
-> step.
+### 1.3 From the limits of the earlier repository to occupation-level analysis
+This follow-up starts where the earlier repository ended. It identified the absence of a binding mentoring system that
+prevents the loss of skills as the problem, but industry-level aggregate data could not show the job-by-job workforce
+dynamics behind it. The labour economics literature points to the same level of analysis: shortages are defined and
+measured by occupation (SOC) rather than by industry (Barnow, Trutko & Schede Piatak, 2013), evidence of an economy-wide
+U.S. skill shortage is weak (Cappelli, 2015), and hiring difficulty in manufacturing is concentrated in particular plants
+and specific skill demands rather than across the sector (Weaver & Osterman, 2017). II-A therefore moves the unit of
+analysis from the industry to the occupation (SOC), the level at which skill requirements are rated and labour supply is
+measured, to sharpen how employers can respond to an ageing floor.
 
 **Data.** Every input is a federal public statistic with documented methods. The pipeline re-runs from the raw files and
 recomputes every reported number by a separate code path. Data and reproduction are in section 5.
 
-### Questions this document answers
+### 1.4 Questions this document answers
 | # | Part | Question | Short answer | Section |
 |---|---|---|---|---|
 | Q1 | 1 | How has the floor job mix actually changed, and what does BLS expect? | Observed: industry employment is 12.5% below its 2018 peak; inside the industry, industrial machinery mechanics grew (+12.2%) and machinery maintenance workers fell by more than half (OEWS May 2021–2025). BLS projects the same direction. CNC tool operators, however, are cut by BLS but grew 35.5% in observed employment | 3.1, 3.2 |
