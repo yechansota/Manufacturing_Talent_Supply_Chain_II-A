@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite it as below."
+type: software
+title: "Manufacturing Talent Supply Chain II-A: Where Each Floor Job's Successors Come From"
+abstract: "Exploratory, descriptive analysis of U.S. motor vehicle parts manufacturing (NAICS 3363) using only federal public data (CES, OEWS, BLS Employment Projections, O*NET 31.0, CPS): how the floor job mix is changing, who leaves first, and where each floor job's successors can come from."
+authors:
+  - family-names: Kim
+    given-names: Yechan
+    alias: Sean Kim
+repository-code: "https://github.com/yechansota/Manufacturing_Talent_Supply_Chain_II-A"
+license: MIT
+keywords:
+  - workforce analytics
+  - succession planning
+  - replacement need
+  - manufacturing
+  - O*NET
