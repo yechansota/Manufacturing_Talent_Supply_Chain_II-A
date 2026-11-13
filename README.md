@@ -11,13 +11,13 @@
 ## 1. Research Background and Motivation
 
 This project began with the manufacturing workforce-ageing case of the 2023 Purdue HR Case Competition and continues the
-earlier repository [*Manufacturing Talent Supply Chain at Risk (2010–2024)*].
+earlier repository [*Manufacturing Talent Supply Chain at Risk (2010–2024)*](https://github.com/yechansota/Mfg_Talent_Supply_Chain.2010-2024.).
 Part II has two repositories.
 
 | Repository | Question | Design |
 |---|---|---|
 | **II-A (this repository)** | How is the floor job mix changing, who leaves first and where do production workers go (Part 1); where do each floor job's successors come from (Part 2) | exploratory, descriptive |
-| [II-B: From the Production Line to Maintenance]| The one move that Parts 1 and 2 point to, production → equipment maintenance, tested in depth | pre-registered |
+| [II-B: From the Production Line to Maintenance](https://github.com/yechansota/Manufacturing_Talent_Supply_Chain_II-B) | The one move that Parts 1 and 2 point to, production → equipment maintenance, tested in depth | pre-specified test |
 
 ### 1.1 A change of lens: replacement need and lead time, not labour shortage
 This study does not read workforce ageing through the usual frame of a labour shortage. It reframes ageing as each job's
@@ -26,6 +26,7 @@ consistently onto changes in labour-market conditions, and projections of future
 reliable enough to guide skill-development policy (Freeman, 2006). Ageing is therefore not used here as evidence of an
 absolute shortage. The analysis asks which jobs face replacement need first because of their age structure (3.4) and
 where their successors can come from (3.5); how long successors take to train is measured in
+[II-B](https://github.com/yechansota/Manufacturing_Talent_Supply_Chain_II-B).
 
 ### 1.2 Scope: auto parts manufacturing (NAICS 3363), an industry projected to shrink inside a growing sector
 For depth, the study focuses on U.S. motor vehicle parts manufacturing (NAICS 3363). In the BLS 2025–35 Employment
@@ -54,7 +55,7 @@ recomputes every reported number by a separate code path. Data and reproduction 
 | Q2 | 1 | How well have BLS projections done for this industry, and what can they be used for? | All four checkable vintages projected less than occurred, and the direction was wrong in three of four. Do not use them for the industry's level; use them for the current job mix, the direction of large occupation groups, and a list of hypotheses to check in the plant (the reasons BLS gives for its changes) | 3.1 |
 | Q3 | 1 | Inside maintenance, is it headcount or skill that is changing? | Both. The growing mechanic job requires more systems evaluation, troubleshooting and control-software skill, but its pay edge has narrowed | 3.3 |
 | Q4 | 1 | Who leaves first, and where do production workers go? (manufacturing as a whole) | Maintenance (28.6%) and machinists (31.8%) have the highest shares aged 55+ (all production 24.4%). Each month 0.10% of production workers move into maintenance in manufacturing and 0.44% retire. Inflow into manufacturing maintenance from production is about twice the outflow to retirement | 3.4 |
-| Q5 | 2 | Where do each floor job's successors come from? | Maintenance jobs have a deep internal bench, but its sources are shrinking. Eleven mostly entry-level jobs (4–17 under other successor rules) have no close internal successor, and production supervisors have the thinnest bench. CNC tool operators are a close source for 13 jobs but have no successor of their own | 3.5 |
+| Q5 | 2 | Where do each floor job's successors come from? | Maintenance jobs have a deep bench of adjacent occupations, but its sources are shrinking. Eleven mostly entry-level jobs (4–17 under other successor rules) have no close successor occupation, and production supervisors have the thinnest bench. CNC tool operators are a close source for 13 jobs but have no successor of their own | 3.5 |
 
 Each result is tagged with the kind of evidence behind it. **[Observed]** actual employment and moves measured by a
 survey · **[Projected]** BLS projections and the reasons BLS gives (judgements) · **[Exploratory]** maps and patterns
@@ -84,8 +85,8 @@ computed with rules set in this repository. This repository has no pre-registere
    0.44% retire (1.57% at 55+). Inflow into manufacturing maintenance from production is about twice the outflow to
    retirement (2.1, 95% interval 1.4–3.4), while all inflow and all outflow are nearly equal (0.91, 0.80–1.04).
 5. **[Exploratory] Floor succession splits three ways, and one job is the source for many** (Figure 6). Among 33 floor jobs
-   (72% of the industry's jobs), maintenance jobs have a deep internal bench, but most of it is shrinking. Eleven jobs,
-   mostly entry level (52% of the mapped jobs), have no close internal successor (4–17 under other reasonable rules). Among
+   (72% of the industry's jobs), maintenance jobs have a deep bench of adjacent occupations, but most of it is shrinking. Eleven jobs,
+   mostly entry level (52% of the mapped jobs), have no close successor occupation (4–17 under other reasonable rules). Among
    skilled jobs with at least one close successor, production supervisors have the thinnest bench. CNC tool operators are
    a close successor source for 13 jobs, including all five maintenance targets, but no job is close enough to succeed
    them.
@@ -100,7 +101,7 @@ computed with rules set in this repository. This repository has no pre-registere
 >    recruiting, training and certification path (II-B).
 > 4. *Moving one job opens another.* For a job that is the source for many jobs, such as CNC tool operators, plan the
 >    backfill at the same time.
-> 5. *Fill entry jobs by hiring, and build a deliberate path to production supervisor.* Internal promotion alone does not
+> 5. *Fill entry jobs by hiring, and build a deliberate path to production supervisor.* Promotion from adjacent floor jobs alone does not
 >    supply them.
 
 ### Figure guide
@@ -397,7 +398,7 @@ used only to compare two flows within the same pairs. The CPS samples housing un
 
 #### 3.5 Who can succeed whom [Exploratory] (DL-31 – DL-33)
 
-<img src="figures/fig6_floor_bench.png" alt="Succession bench for every floor job in NAICS 3363: close internal successor jobs per job held, BLS adjustment, observed change of the close successor sources, nearest eligible successor" width="100%">
+<img src="figures/fig6_floor_bench.png" alt="Succession bench for every floor job in NAICS 3363: close successor-occupation jobs per job held, BLS adjustment, observed change of the close successor sources, nearest eligible successor" width="100%">
 
 *How to read:* each row is one floor job (bold = maintenance targets), sorted from the deepest to the thinnest bench. The dot shows how many jobs in close successor occupations exist per job held (log scale; right of the dashed line at 1 = more successors than positions; 'none' = no close successor). Dot size = size of the job; blue = maintenance. The columns give the job's size, BLS's adjustment, the observed 2021–25 change of its close successor sources (negative = the bench is shrinking) and the nearest eligible successor with its proximity P.
 
@@ -453,11 +454,11 @@ has $P \le 25$. **Bench ratio** = jobs in close successor occupations per job in
 
 **What the map shows.**
 - **Maintenance has a deep bench, but four of the five targets' benches are getting thinner.** Every maintenance target
-  has more jobs in close internal successor occupations than jobs of its own (bench ratio 3.9–60). For industrial
+  has more jobs in close successor occupations than jobs of its own (bench ratio 3.9–60). For industrial
   machinery mechanics, the only one BLS raises, the close sources are 8 occupations with 50,970 jobs, and general
   maintenance workers are the closest (P 3, stable in 99% of the half-sets). These source occupations had 15% fewer jobs in
   May 2025 than in May 2021 (9% fewer than in May 2022). Only electricians saw their close sources grow.
-- **Eleven jobs (52% of the mapped jobs, 200,180) have no close internal successor.** Most are the lowest-paid entry jobs
+- **Eleven jobs (52% of the mapped jobs, 200,180) have no close successor occupation.** Most are the lowest-paid entry jobs
   (team assemblers, inspectors, electrical assemblers, molding and welding machine setters, helpers, packers, stockers,
   sewing machine operators): few jobs can feed them by promotion, so outside hiring is the pipeline. Two are not entry
   jobs: CNC tool operators (15 eligible occupations, none closer than P 38) and industrial engineering technicians (24
@@ -473,8 +474,8 @@ has $P \le 25$. **Bench ratio** = jobs in close successor occupations per job in
   enough to succeed CNC tool operators (nearest P 38). BLS cuts this job 10% against the industry baseline, but observed
   employment grew 35.5% in May 2021–2025.
 
-> **Reading.** Floor succession splits three ways. Where an internal bench exists (maintenance, skilled setters,
-> technicians), the task is to train before the sources shrink further. Entry jobs have no internal source, so hiring is
+> **Reading.** Floor succession splits three ways. Where a bench of adjacent occupations exists (maintenance, skilled setters,
+> technicians), the task is to train before the sources shrink further. Entry jobs have no adjacent source, so hiring is
 > the pipeline. Production supervisors have no close production job on Skills, so a path has to be built deliberately.
 
 **How firm are these numbers? (DL-32).** The map was re-run with the Skills ratings redrawn from their published standard
@@ -505,9 +506,9 @@ their redraw ranges: coating and painting setters 36.6 (1.9–36.6), engine asse
 > that production jobs (SOC 51) hold 66% of the close successor jobs of industrial machinery mechanics, 92% for general
 > maintenance workers, 98% for machinery maintenance workers, 100% for millwrights and 51% for electricians. But this
 > proximity, computed from skill ratings, says workers *could move*, not that they *do*, and it is the same measure as
-> II-B's pre-registered H1, so the two repositories do not confirm the same fact twice. Actual moves can only be checked with
-> other data. [II-B](https://github.com/yechansota/Mfg_Talent_Supply_Chain_II.Line_to_Maintenance) therefore tests this
-> one path separately, with a pre-registered design and observed CPS moves.
+> II-B's pre-specified H1, so the two repositories do not confirm the same fact twice. Actual moves can only be checked with
+> other data. [II-B](https://github.com/yechansota/Manufacturing_Talent_Supply_Chain_II-B) therefore tests this
+> one path separately, with a pre-specified design and observed CPS moves.
 
 ---
 
@@ -531,11 +532,11 @@ their redraw ranges: coating and painting setters 36.6 (1.9–36.6), engine asse
 *Part 2: succession for every floor job*
 
 4. **Plan the backfill before moving CNC tool operators.** They are the close successor source for 13 floor jobs and the
-   only one for multiple machine tool setters and automotive service technicians, and no internal job is close enough to
+   only one for multiple machine tool setters and automotive service technicians, and no other floor job is close enough to
    replace them (3.5).
-5. **Treat entry jobs as a hiring pipeline.** Entry jobs with no close internal successor, such as team assemblers,
+5. **Treat entry jobs as a hiring pipeline.** Entry jobs with no close successor occupation, such as team assemblers,
    inspectors and electrical assemblers (11 under the base rule, 4–17 under others), are supplied by hiring and onboarding,
-   not internal succession.
+   not succession from adjacent floor jobs.
 6. **Build a path to production supervisor.** On Skills no production job is close to supervisors (3.5), so promotion from
    the line alone will not supply them. Plan a deliberate path and check it against plant job descriptions.
 
@@ -604,12 +605,12 @@ do not remove error; they make it visible, so the published standard errors are 
 | CPS basic monthly public-use microdata (Census) | January 2020 – September 2026 (October 2025 not collected) | age profile; status of the same person in consecutive months |
 | Census 2018 occupation code list; 2017 and 2022 industry code lists | — | linking CPS codes to SOC and NAICS |
 
-**Maintenance family.** The same five jobs as II-B's pre-registered rule: equipment maintenance, repair and electrical
+**Maintenance family.** The same five jobs as II-B's pre-specified rule: equipment maintenance, repair and electrical
 occupations with at least 1,000 jobs and an employment relative standard error of at most 10% in OEWS May 2025, NAICS
 336300 — industrial machinery mechanics (13,210), maintenance and repair workers, general (8,170), electricians (2,920),
 maintenance workers, machinery (1,690) and millwrights (1,340). First-line supervisors of mechanics, installers and
-repairers (49-1011, 2,700 jobs) meet the size and precision thresholds but are not a pre-registered target of II-B. The
-registration records no reason, and none is constructed afterwards (see II-B's sensitivity analysis). In this
+repairers (49-1011, 2,700 jobs) meet the size and precision thresholds but are not a pre-specified target of II-B. II-B's
+specification records no reason, and none is constructed afterwards (see II-B's sensitivity analysis). In this
 repository's succession map they are included as an ordinary job. In the CPS the five 2018 Census codes that contain the
 same jobs (6355, 7330, 7340, 7350, 7360) are used.
 
@@ -639,7 +640,7 @@ python -m pytest                 # unit tests and real-data checks
 
 **Repository layout.**
 ```
-config/project.yaml           analysis settings (not a pre-registration; the maintenance family follows II-B's registered rule)
+config/project.yaml           analysis settings (not a pre-registration; the maintenance family follows II-B's pre-specified rule)
 run_pipeline.py               one-command run → results_log.txt
 src/                          ingest, BLS projections inside the industry (mix), observed trend, job-mix history,
                               maintenance skill content, succession map, projection track record, CPS age profile
@@ -676,4 +677,4 @@ tests/                        unit and real-data tests
 - Benjamini, Y., & Hochberg, Y. (1995). *Journal of the Royal Statistical Society: Series B*, 57(1), 289–300; Benjamini, Y., & Yekutieli, D. (2001). *The Annals of Statistics*, 29(4), 1165–1188.
 
 ## Author
-**Yechan (Sean) Kim** · [GitHub @yechansota](https://github.com/yechansota) · Series: [*Manufacturing Talent Supply Chain at Risk (2010–2024)*](https://github.com/yechansota/Mfg_Talent_Supply_Chain.2010-2024.) · [II-B](https://github.com/yechansota/Mfg_Talent_Supply_Chain_II.Line_to_Maintenance)
+**Yechan (Sean) Kim** · [GitHub @yechansota](https://github.com/yechansota) · Series: [*Manufacturing Talent Supply Chain at Risk (2010–2024)*](https://github.com/yechansota/Mfg_Talent_Supply_Chain.2010-2024.) · [II-B](https://github.com/yechansota/Manufacturing_Talent_Supply_Chain_II-B)
